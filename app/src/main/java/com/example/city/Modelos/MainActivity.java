@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         menuNavegacion = (BottomNavigationView) findViewById(R.id.menu_navegacion);
         menuNavegacion.setSelectedItemId(R.id.btn_nav_estudio);
 
+        setToolBar();
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         Fragment fragment = new EstudioFragment();
 
         menuNavegacion.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -68,7 +70,43 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         });
 
 
+        menuLateral = findViewById(R.id.navigationId);//Obtenemos el objeto del xml
 
+        menuLateral.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
+
+                switch (item.getItemId()){
+                    case R.id.btn_nav_alerta_usuarios_iz:
+                        fragment = new UsuarioFragment();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_usuarios);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.btn_nav_alerta_estudio_iz:
+                        fragment = new EstudioFragment();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_estudio);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.btn_nav_mi_ciudad_iz:
+                        fragment = new CiudadFragment();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_ciudades);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.btn_nav_pefil_iz:
+                        fragment = new PerfilFragment();
+                        menuNavegacion.setSelectedItemId(R.id.btn_nav_perfil);
+                        drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.btn_cerrar:
+                        drawerLayout.closeDrawers();
+                        break;
+
+                }
+                return cargarFragmento(fragment);
+            }
+        });
 
 
     }
@@ -109,6 +147,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         return cargarFragmento(fragment);
     }
+
+    private void setToolBar(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_home);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -41,7 +41,7 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/menu_navegacion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             app:itemIconTint="@drawable/nav_item_color"
             app:itemTextColor="@drawable/nav_item_color"
             app:menu="@menu/barra_navegacion"
