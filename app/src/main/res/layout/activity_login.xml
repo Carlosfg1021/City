@@ -35,7 +35,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="0dp"
-        android:background="@drawable/estudiante"
+        android:background="@drawable/manmechanic"
         />
 
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.city.Inicio.LoginActivity;
+import com.example.city.Modelos.MainActivity;
 
 public class PortadaActivity extends AppCompatActivity {
 
@@ -19,7 +20,7 @@ public class PortadaActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(PortadaActivity.this, LoginActivity.class);
+                Intent intent = new Intent(PortadaActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }, 2000);

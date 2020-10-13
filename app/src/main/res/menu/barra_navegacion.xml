@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/btn_nav_usuarios"
+        android:title="Usuarios"
+        android:icon="@drawable/ic_usuarios"/>
+
+    <item android:id="@+id/btn_nav_estudio"
+        android:title="Estudio"
+        android:icon="@drawable/ic_baseline_menu_book_24"/>
+
+    <item android:id="@+id/btn_nav_ciudades"
+        android:title="Mi Ciudad"
+        android:icon="@drawable/ic_ciudad"/>
+
+    <item android:id="@+id/btn_nav_perfil"
+        android:title="Perfil"
+        android:icon="@drawable/ic_usuario"/>
+
+
+
+</menu>

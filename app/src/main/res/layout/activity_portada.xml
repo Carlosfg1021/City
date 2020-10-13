@@ -11,7 +11,7 @@
     android:layout_width="200dp"
     android:layout_height="200dp"
     android:layout_centerHorizontal="true"
-    android:layout_marginTop="60dp"
+    android:layout_marginTop="290dp"
     android:background="@drawable/ciudad1"
     >
 </ImageView>
@@ -20,19 +20,10 @@
         android:layout_width="260dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="200dp"
         android:text="Cities of Study"
         android:textColor="#000000"
         android:textSize="40dp"
         />
-
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:background="@drawable/acka_logo"
-        >
-    </ImageView>
 
 </RelativeLayout>

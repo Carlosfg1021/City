@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIN="navigation_view"
+    >
+
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/btn_nav_alerta_rapida_iz"
+            android:icon="@drawable/ic_usuarios"
+            android:title="Usuarios"/>
+
+        <item android:id="@+id/btn_nav_alerta_especifica_iz"
+            android:icon="@drawable/ic_baseline_menu_book_24"
+            android:title="Estudio"/>
+
+        <item android:id="@+id/btn_nav_mi_perfil_iz"
+            android:icon="@drawable/ic_ciudad"
+            android:title="Mi ciudad"/>
+
+        <item android:id="@+id/btn_nav_notification_iz"
+            android:icon="@drawable/ic_usuario"
+            android:title="Notificaciones"/>
+
+    </group>
+
+    <item android:title="Otros">
+        <menu>
+            <item android:id="@+id/btn_acercade"
+                android:icon="@drawable/ic_acerca"
+                android:title="Acerca de"/>
+            <item android:id="@+id/btn_cerrar"
+                android:icon="@drawable/ic_cerrar"
+                android:title="Cerrar"/>
+        </menu>
+    </item>
+</menu>

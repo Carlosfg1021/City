@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Modelos.MainActivity"></activity>
-        <activity android:name=".Inicio.LoginActivity" />
+        <activity android:name=".Inicio.LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".PortadaActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
