@@ -99,7 +99,7 @@
         android:layout_below="@+id/facebook"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Cities of StudyKM"
+        android:text="Cities of StudyKMKM"
         android:textColor="#000000"
         android:textSize="29dp"
         />
