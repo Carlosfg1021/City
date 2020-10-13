@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "605617783638",
+    "firebase_url": "https://cities-of-study.firebaseio.com",
+    "project_id": "cities-of-study",
+    "storage_bucket": "cities-of-study.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605617783638:android:4f7cc65becb20a8d4eccf7",
+        "android_client_info": {
+          "package_name": "com.example.city"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605617783638-1rf0ol7c52oun62vobcsdfpfm1c2f6pv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-xV8yZuLu39ujwlY5qmhU9Fj37Ga17Gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605617783638-1rf0ol7c52oun62vobcsdfpfm1c2f6pv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
