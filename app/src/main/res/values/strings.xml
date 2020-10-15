@@ -2,4 +2,15 @@
     <string name="app_name">Cities of Study</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="tiempos_array">
+        <item>30 minutos</item>
+        <item>45 minutos</item>
+        <item>60 minutos</item>
+        <item>120 minutos</item>
+
+    </string-array>
+
+
+
 </resources>
