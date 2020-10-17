@@ -20,7 +20,7 @@ public class PortadaActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                Intent intent = new Intent(PortadaActivity.this, AuthActivity.class);
+                Intent intent = new Intent(PortadaActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }, 2000);
