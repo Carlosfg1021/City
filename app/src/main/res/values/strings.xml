@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Cities of Study</string>
+
+    <string name="prefs_file">com.example.firebasetutorial.PREFERENCE_FILE_KEY</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -10,7 +13,6 @@
         <item>120 minutos</item>
 
     </string-array>
-
 
 
 </resources>
