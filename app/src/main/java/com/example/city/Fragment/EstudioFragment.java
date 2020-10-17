@@ -1,5 +1,6 @@
 package com.example.city.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,12 +9,16 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.city.GanarActivity;
+import com.example.city.Modelos.MainActivity;
+import com.example.city.PortadaActivity;
 import com.example.city.R;
 
 
@@ -33,7 +38,7 @@ public class EstudioFragment extends Fragment {
     Spinner sp_tiempo;
     Button btn_iniciar;
     TextView lbl_mostrar_tiempo;
-
+    String tiempoSeleccionado;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -89,6 +94,22 @@ public class EstudioFragment extends Fragment {
         // Apply the adapter to the spinner
         sp_tiempo.setAdapter(adapter);
 
+        //accion de spinner
+        sp_tiempo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Este codigo es para el evento que indique cual tiempo se esta seleccionando
+                tiempoSeleccionado = sp_tiempo.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+
 
         //dando accion al boton
         btn_iniciar = (Button) view.findViewById(R.id.btnIniciar);
@@ -97,6 +118,7 @@ public class EstudioFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                Toast.makeText(getActivity(), tiempoSeleccionado, Toast.LENGTH_SHORT).show();
                 iniciarCuenta();
 
             }
@@ -113,8 +135,36 @@ public class EstudioFragment extends Fragment {
     }
 
     private void iniciarCuenta() {
-        int min= 1 *60*1000;
-        int seg = 0*1000;
+        int min=0;
+        int seg=0;
+
+        if(tiempoSeleccionado.equals("1 minuto")){
+             min= 1 *60*1000;
+             seg = 0*1000;
+        }else if(tiempoSeleccionado.equals("5 minutos")){
+             min= 5 *60*1000;
+             seg = 0*1000;
+        }else if(tiempoSeleccionado.equals("15 minutos")){
+             min= 15 *60*1000;
+             seg = 0*1000;
+        }
+        else if(tiempoSeleccionado.equals("30 minutos")){
+             min=  30 *60*1000;
+             seg = 0*1000;
+        }
+        else if(tiempoSeleccionado.equals("45 minutos")){
+             min=  45 *60*1000;
+             seg = 0*1000;
+        }
+        else if(tiempoSeleccionado.equals("1 hora")){
+             min=  60 *60*1000;
+             seg = 0*1000;
+        }
+        else if(tiempoSeleccionado.equals("2 horas")){
+            min=  120 *60*1000;
+            seg = 0*1000;
+        }
+
 
         long valor = min + seg;
 
@@ -135,7 +185,9 @@ public class EstudioFragment extends Fragment {
             @Override
             public void onFinish() {
                 Toast.makeText(getActivity(), "Finalizo", Toast.LENGTH_SHORT).show();
-                lbl_mostrar_tiempo.setText("Se ha terminado");
+                lbl_mostrar_tiempo.setText("00:00");
+                Intent intent = new Intent(getActivity(), GanarActivity.class);
+                startActivity(intent);
             }
         }.start();
 

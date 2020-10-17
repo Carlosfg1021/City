@@ -13,15 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="20dp"
+        android:padding="20dp">
+
+
 
         <TextView
             android:id="@+id/editarNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tiempo para estudiar"
+            android:gravity="center"
+            android:text="Estudiar"
             android:textSize="25dp"
-
             android:layout_marginTop="20dp"
 
             />
@@ -29,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Spinner para el tiempo a escoger"
+            android:text="Tiempo para estudiar"
             android:layout_marginLeft="40dp"
 
             android:textSize="20dp"

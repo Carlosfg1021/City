@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Inicio.HomeActivity"></activity>
+        <activity android:name=".GanarActivity"></activity>
+        <activity android:name=".Inicio.HomeActivity" />
         <activity android:name=".Modelos.MainActivity" />
         <activity
             android:name=".Inicio.AuthActivity"
