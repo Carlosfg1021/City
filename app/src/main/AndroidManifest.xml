@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GanarActivity"></activity>
+        <activity
+            android:name=".EditarUsuarioActivity"
+            android:label="@string/title_activity_editar_usuario"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".GanarActivity" />
         <activity android:name=".Inicio.HomeActivity" />
         <activity android:name=".Modelos.MainActivity" />
         <activity
