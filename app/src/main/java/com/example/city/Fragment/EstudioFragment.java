@@ -1,11 +1,14 @@
 package com.example.city.Fragment;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
+import android.os.PowerManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,12 +36,16 @@ public class EstudioFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+
     View view; //esto servira para hacer acciones.
 
     Spinner sp_tiempo;
     Button btn_iniciar;
     TextView lbl_mostrar_tiempo;
     String tiempoSeleccionado;
+    int bandera = 0;
+    CountDownTimer cuenta;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -94,6 +101,9 @@ public class EstudioFragment extends Fragment {
         // Apply the adapter to the spinner
         sp_tiempo.setAdapter(adapter);
 
+
+
+
         //accion de spinner
         sp_tiempo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -111,6 +121,9 @@ public class EstudioFragment extends Fragment {
 
 
 
+
+
+
         //dando accion al boton
         btn_iniciar = (Button) view.findViewById(R.id.btnIniciar);
         lbl_mostrar_tiempo = (TextView) view.findViewById(R.id.mostrarTiempo);
@@ -120,6 +133,7 @@ public class EstudioFragment extends Fragment {
 
                 Toast.makeText(getActivity(), tiempoSeleccionado, Toast.LENGTH_SHORT).show();
                 iniciarCuenta();
+                bandera=1;
 
             }
         });
@@ -134,11 +148,79 @@ public class EstudioFragment extends Fragment {
 
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+      //  Toast.makeText(this, "OnStart", Toast.LENGTH_SHORT).show();
+        // La actividad está a punto de hacerse visible.
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+       // Toast.makeText(this, "OnResume", Toast.LENGTH_SHORT).show();
+        // La actividad se ha vuelto visible (ahora se "reanuda").
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+      //  Toast.makeText(this, "OnPause", Toast.LENGTH_SHORT).show();
+        // Enfocarse en otra actividad  (esta actividad está a punto de ser "detenida").
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        //Esto es para calcular si la aplicacion tiene la pantalla apgada o encendida
+        //Este gran metodo permite estudiar ahorrando la batería del celular de igual manera.
+
+        PowerManager pm = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
+        if (pm.isScreenOn()) {
+            if(bandera==1){
+                Toast.makeText(getActivity(), "Se ha parado el sistema", Toast.LENGTH_SHORT).show();
+                cuenta.cancel();
+                Intent i = new Intent(getContext(), GanarActivity.class);
+                i.putExtra("opcion", "perder");
+                startActivity(i);
+
+            }
+        }else{
+
+        }
+
+
+
+        /*
+        if(bandera==1){
+            Toast.makeText(getActivity(), "Se ha parado el sistema", Toast.LENGTH_SHORT).show();
+            cuenta.cancel();
+            Intent i = new Intent(getContext(), GanarActivity.class);
+            i.putExtra("opcion", "perder");
+            startActivity(i);
+
+        }
+       */
+
+
+
+
+    }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //Toast.makeText(this, "OnDestroy", Toast.LENGTH_SHORT).show();
+        // La actividad está a punto de ser destruida.
+    }
+
+
+
+
     private void iniciarCuenta() {
         int min=0;
         int seg=0;
 
-        if(tiempoSeleccionado.equals("1 minuto")){
+        if(tiempoSeleccionado.equals("5 segundos")) {
+            min = 0 * 60 * 1000;
+            seg = 5 * 1000;
+        }else if(tiempoSeleccionado.equals("1 minuto")){
              min= 1 *60*1000;
              seg = 0*1000;
         }else if(tiempoSeleccionado.equals("5 minutos")){
@@ -168,7 +250,7 @@ public class EstudioFragment extends Fragment {
 
         long valor = min + seg;
 
-        CountDownTimer cuenta = new CountDownTimer(valor,1000) {
+         cuenta = new CountDownTimer(valor,1000) {
             @Override
             public void onTick(long l) {
 
@@ -186,8 +268,13 @@ public class EstudioFragment extends Fragment {
             public void onFinish() {
                 Toast.makeText(getActivity(), "Finalizo", Toast.LENGTH_SHORT).show();
                 lbl_mostrar_tiempo.setText("00:00");
-                Intent intent = new Intent(getActivity(), GanarActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(getContext(), GanarActivity.class);
+                i.putExtra("opcion", "ganar");
+                startActivity(i);
+                bandera=0; //se pone otra vez a espera y no activará el activity
+
+
+
             }
         }.start();
 

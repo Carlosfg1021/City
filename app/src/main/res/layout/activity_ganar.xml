@@ -24,6 +24,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¡Ganaste!"
@@ -48,9 +49,10 @@
         />
 
     <TextView
+        android:id="@+id/cantidadxp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="+25XP"
+        android:text="+-XP"
 
         android:layout_marginTop="90dp"
         android:layout_marginLeft="130dp"
@@ -313,12 +315,23 @@
                 android:textColor="#000000"
                 android:textSize="16dp" />
 
-
+            <Button
+                android:id="@+id/btnContinuar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Continuar"
+                android:textColor="@color/blanco"
+                android:background="@drawable/boton_redondo_celeste"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="10dp"
+                />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="100dp" />
+
+
 
 
         </LinearLayout>
