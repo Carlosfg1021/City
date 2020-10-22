@@ -3,6 +3,7 @@ package com.example.city.Fragment;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,7 @@ import com.example.city.GanarActivity;
 import com.example.city.Modelos.MainActivity;
 import com.example.city.PortadaActivity;
 import com.example.city.R;
+import com.google.firebase.auth.FirebaseUser;
 
 
 /**
@@ -134,6 +136,13 @@ public class EstudioFragment extends Fragment {
                 Toast.makeText(getActivity(), tiempoSeleccionado, Toast.LENGTH_SHORT).show();
                 iniciarCuenta();
                 bandera=1;
+              //  btn_iniciar.setEnabled(false);
+
+
+                //para que cambie el color y estado
+              //  btn_iniciar.setText("ESTUDIANDO");
+               // btn_iniciar.setTextColor(Color.GRAY);
+
 
             }
         });
