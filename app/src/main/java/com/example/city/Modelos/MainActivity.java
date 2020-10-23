@@ -46,9 +46,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     BottomNavigationView menuNavegacion;
     com.google.android.material.navigation.NavigationView menuLateral;
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
-    public String uidUsuario;
-    public String uidCiudad;
-    boolean isRegistrado;
+    public static String uidUsuario;
+    public static String uidCiudad;
+    int isRegistrado=0;
 
     //Variables para agregar a firebase
     FirebaseDatabase firebaseDatabase;
@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        isRegistrado=0;
+
         inicializarFirebase();
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
@@ -72,11 +74,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             uidUsuario = (signInAccount.getId());
 
 
+
         }
 
         Toast.makeText(this,uidUsuario,Toast.LENGTH_SHORT).show();
 
         consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
+
+
 
 
 
@@ -158,9 +163,11 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void goRegistrar() {
-        Intent i = new Intent(this, RegistroActivity.class);
-        startActivity(i);
-        this.finish();
+
+            Intent i = new Intent(MainActivity.this, RegistroActivity.class);
+            startActivity(i);
+
+
     }
 
     private void inicializarFirebase() {
@@ -179,27 +186,24 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
                     Usuario u = objSnapshot.getValue(Usuario.class);
-                    listUsuario.add(u);
+
 
                     if (u.getUid().equals(uidUsuario)){
-                        isRegistrado = true;
+                        isRegistrado = 1;
                         uidCiudad = u.getIdCiudad();
-                    }else{
-                        isRegistrado = false;
+                        Toast.makeText(MainActivity.this, "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+                        break;
 
+                    }else{
+                        Toast.makeText(MainActivity.this, "NO ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+                        goRegistrar();
 
                     }
 
 
-                    //ESTE METODO SERVIRA PARA CONSULTA EN FUTURAS LISTAS
-
-                    // arrayAdapterUsuario = new ArrayAdapter<Usuario>(this, android.R.layout.simple_list_item_1, listUsuario);
-                    // listaPersonaID.setAdaptar(ArrayAdapterUsuario);
                 }
 
-                if(isRegistrado==false){
-                    goRegistrar();
-                }
+
 
 
             }

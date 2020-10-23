@@ -24,6 +24,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/lblNickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nick Usuario"
@@ -34,6 +35,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/lblCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Correo electronico"
@@ -55,7 +57,7 @@
         />
 
     <ImageView
-        android:id="@+id/editarImagenPerfil"
+        android:id="@+id/fotoPerfilF"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginLeft="15dp"
@@ -196,7 +198,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Modenas"
+                        android:text="Monedas"
                         android:textSize="16dp"
                         android:textStyle="normal"/>
 
@@ -238,11 +240,20 @@
             </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CityName"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="30dp" />
+
 
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="10dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -254,6 +265,23 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nickname"
+            android:textSize="14dp"
+            android:fontFamily="sans-serif"
+            />
+        <TextView
+            android:id="@+id/txtNickname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:hint="Nickname-show"
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <TextView
         android:layout_width="wrap_content"
@@ -280,12 +308,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apellido"
+        android:text="Institucion"
         android:textSize="14dp"
         android:fontFamily="sans-serif"
         />
     <TextView
-        android:id="@+id/txtApellido"
+        android:id="@+id/txtInstitucion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
