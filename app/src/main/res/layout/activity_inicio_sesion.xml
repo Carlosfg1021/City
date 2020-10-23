@@ -27,10 +27,12 @@
             android:layout_height="15dp" />
 
         <Button
-            android:id="@+id/SingInButton"
+            android:id="@+id/google_signIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:background="@drawable/com_facebook_auth_dialog_header_background"
+            android:drawableStart="@drawable/google"
+            android:text="Google" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,89 +1,57 @@
 package com.example.city.Inicio;
 
-import android.net.Uri;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.city.Modelos.MainActivity;
 import com.example.city.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class RegistroActivity extends AppCompatActivity {
 
-    TextView name, email, id;
-    Button signOut;
-    GoogleSignInClient mGoogleSignInClient;
+    TextView name, mail;
+    Button logout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate (Bundle savedInstanceState){
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-
-                .requestEmail()
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
+        logout = findViewById(R.id.logout);
         name = findViewById(R.id.txtNombre);
-        email = findViewById(R.id.txtCorreo);
-        id = findViewById(R.id.txtNick);
-        signOut = findViewById(R.id.button);
+        mail = findViewById(R.id.txtCorreo);
 
-        signOut.setOnClickListener(new View.OnClickListener() {
+
+
+        GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
+        if (signInAccount != null){
+
+            name.setText(signInAccount.getDisplayName());
+            mail.setText(signInAccount.getEmail());
+
+        }
+
+        logout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
-                switch (v.getId()) {
-                    case R.id.button:
-                        signOut();
-                        break;
-                }
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(),InicioSesion.class);
+                startActivity(intent);
 
             }
         });
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
-        if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-
-            name.setText(personName);
-            email.setText(personEmail);
-            id.setText(personId);
-
-        }
-
-
     }
-
-    private void signOut() {
-        mGoogleSignInClient.signOut()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-
-                        Toast.makeText(RegistroActivity.this, "Cerramos Sesion Exitosamente", Toast.LENGTH_LONG).show();
-                        finish();
-
-                    }
-                });
-    }
-
 
 }
