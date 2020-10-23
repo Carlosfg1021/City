@@ -11,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.city.Inicio.AuthActivity;
 import com.example.city.Modelos.MainActivity;
 
 import org.w3c.dom.Text;
