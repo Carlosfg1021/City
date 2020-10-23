@@ -39,7 +39,7 @@ public class InicioSesion extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null){
 
-            Intent intent = new Intent(getApplicationContext(),RegistroActivity.class);
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
 
         }
@@ -120,7 +120,7 @@ public class InicioSesion extends AppCompatActivity {
                         if (task.isSuccessful()){
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(),RegistroActivity.class);
+                           Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(intent);
                         }else {
 

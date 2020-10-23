@@ -27,5 +27,15 @@
 
     </string-array>
 
+    <string-array name="institucion_array">
+        <item>INEB JM</item>
+        <item>INEB JV</item>
+        <item>UMG</item>
+        <item>USAC</item>
+        <item>UFM</item>
+        <item>Otra</item>
+
+    </string-array>
+
 
 </resources>
