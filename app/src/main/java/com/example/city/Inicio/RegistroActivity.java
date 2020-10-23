@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegistroActivity extends AppCompatActivity {
 
-    TextView name, mail;
+    TextView name, mail, uid;
     Button logout;
 
     @Override
@@ -30,12 +30,14 @@ public class RegistroActivity extends AppCompatActivity {
         logout = findViewById(R.id.logout);
         name = findViewById(R.id.txtNombre);
         mail = findViewById(R.id.txtCorreo);
+        uid = findViewById(R.id.uid);
 
 
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if (signInAccount != null){
 
+            uid.setText(signInAccount.getId());
             name.setText(signInAccount.getDisplayName());
             mail.setText(signInAccount.getEmail());
 
