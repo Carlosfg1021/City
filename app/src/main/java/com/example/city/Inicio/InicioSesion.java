@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.city.Modelos.MainActivity;
 import com.example.city.R;
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,6 +29,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class InicioSesion extends AppCompatActivity {
 
+
     private GoogleSignInClient mGoogleSignInClient;
     private final static int RC_SIGN_IN = 123;
     private FirebaseAuth mAuth;
@@ -37,10 +39,11 @@ public class InicioSesion extends AppCompatActivity {
         super.onStart();
 
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null){
+       if (user != null){
 
-            Intent intent = new Intent(getApplicationContext(),RegistroActivity.class);
-            startActivity(intent);
+
+           Intent intent = new Intent(this,RegistroActivity.class);
+           startActivity(intent);
 
         }
 
@@ -50,7 +53,7 @@ public class InicioSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+       getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_inicio_sesion);
 
         mAuth = FirebaseAuth.getInstance();
@@ -64,6 +67,8 @@ public class InicioSesion extends AppCompatActivity {
                 signIn();
 
             }
+
+
         });
 
     }

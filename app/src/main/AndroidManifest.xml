@@ -17,6 +17,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GanarActivity" />
         <activity android:name=".Modelos.MainActivity" />
+        <activity android:name=".Inicio.InicioSesion" />
+        <activity android:name=".Inicio.RegistroActivity" />
+
+
         <activity
             android:name=".PortadaActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
