@@ -32,6 +32,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -52,7 +54,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     public static Usuario user = new Usuario();
     public static Ciudad city = new Ciudad();
-    int isRegistrado;
+    boolean isRegistrado =false;
+
+    FirebaseUser userDB = FirebaseAuth.getInstance().getCurrentUser(); // es publico
 
     //Variables para agregar a firebase
     FirebaseDatabase firebaseDatabase;
@@ -68,31 +72,29 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        isRegistrado=0;
+
 
         inicializarFirebase();
+        Toast.makeText(this,userDB.getDisplayName(),Toast.LENGTH_SHORT).show();
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
         if (signInAccount != null){
 
             uidUsuario = (signInAccount.getId());
 
-            seleccionarUsuario();
-            consultarCiudad();
 
-            if(isRegistrado==1){
-                goRegistrar();
-            }
 
 
 
         }
+
+        consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
         consultarCiudad();
 
 
         //Toast.makeText(this,uidUsuario,Toast.LENGTH_SHORT).show();
 
-        //consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
+
         //consultarCiudad();
 
 
@@ -188,8 +190,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
     private void goRegistrar() {
 
-            Intent i = new Intent(MainActivity.this, RegistroActivity.class);
-            startActivity(i);
+        Intent intent = new Intent(this, RegistroActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
 
 
     }
@@ -199,6 +202,46 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
     }
+
+    private void listarDatos() {
+        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //listUsuarios.clear(); //por si tiene algo almacenado en caché
+                for(DataSnapshot objSnaptshot : dataSnapshot.getChildren()){
+                    Usuario p = objSnaptshot.getValue(Usuario.class);
+
+                   // listUsuarios.add(p);
+                   // Toast.makeText(MainActivity.this, "Nombre: " + p.getUid(), Toast.LENGTH_SHORT).show();
+                    String uid = p.getUid();
+
+
+                    if(userDB.getUid().equals(uid)){
+                        isRegistrado = true;
+                        Toast.makeText(MainActivity.this, "Nombre: " + p.getUid(), Toast.LENGTH_SHORT).show();
+                        uidCiudad = p.getIdCiudad();
+                    }
+
+                    //  arrayAdapterPersona = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, listPerson);
+                    //listV_personas.setAdapter(arrayAdapterPersona);
+                }
+
+                if (isRegistrado==true){
+                    Toast.makeText(MainActivity.this, "Usuario SI registrado", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Usuario NO registrado", Toast.LENGTH_SHORT).show();
+                    //goRegistrar();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
     private void seleccionarUsuario(){
         databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
@@ -212,15 +255,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                     if (u.getUid().equals(uidUsuario)){
 
-                    isRegistrado=1;
+                    isRegistrado=true;
                         uidCiudad = u.getIdCiudad();
 
-                        Toast.makeText(MainActivity.this, u.getNombre()+ "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MainActivity.this, u.getNombre()+ "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
 
 
-                        break;
+
                     }else{
-                        Toast.makeText(MainActivity.this, u.getNombre()+ "NO ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+                      //  Toast.makeText(MainActivity.this, u.getNombre()+ "NO ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -252,7 +295,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
                     if (u.getUid().equals(uidUsuario)){
-                        isRegistrado = 1;
+                        isRegistrado = true;
                         uidCiudad = u.getIdCiudad();
                         Toast.makeText(MainActivity.this, "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
 
@@ -273,9 +316,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
                     }
                     else{
-                        isRegistrado= 0;
+
                     }
 
+                }
+
+                if(isRegistrado==false){
+                    Toast.makeText(MainActivity.this, "NOOO esta registrado", Toast.LENGTH_SHORT).show();
+                    goRegistrar();
                 }
 
 
