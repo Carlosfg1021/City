@@ -87,6 +87,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         }
+        consultarCiudad();
+
 
         //Toast.makeText(this,uidUsuario,Toast.LENGTH_SHORT).show();
 
@@ -211,6 +213,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     if (u.getUid().equals(uidUsuario)){
 
                     isRegistrado=1;
+                        uidCiudad = u.getIdCiudad();
 
                         Toast.makeText(MainActivity.this, u.getNombre()+ "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
 
