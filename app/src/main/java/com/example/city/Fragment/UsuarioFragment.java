@@ -58,5 +58,7 @@ public class UsuarioFragment extends Fragment {
 
     }
 
+    public void juego(){}
+
 
 }
