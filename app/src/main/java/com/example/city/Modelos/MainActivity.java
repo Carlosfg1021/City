@@ -25,6 +25,7 @@ import com.example.city.Fragment.PerfilFragment;
 import com.example.city.Fragment.UsuarioFragment;
 import com.example.city.Inicio.RegistroActivity;
 import com.example.city.R;
+import com.example.city.datos.Ciudad;
 import com.example.city.datos.Usuario;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     private androidx.drawerlayout.widget.DrawerLayout drawerLayout;
     public static String uidUsuario;
     public static String uidCiudad;
+
+    public static Usuario user = new Usuario();
+    public static Ciudad city = new Ciudad();
     int isRegistrado=0;
 
     //Variables para agregar a firebase
@@ -80,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Toast.makeText(this,uidUsuario,Toast.LENGTH_SHORT).show();
 
         consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
+        consultarCiudad();
 
 
 
@@ -177,7 +182,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     }
 
     private void consultarExisteUsuario(){
-
         databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -192,6 +196,20 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         isRegistrado = 1;
                         uidCiudad = u.getIdCiudad();
                         Toast.makeText(MainActivity.this, "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+
+                        user.setUid(u.getNickname());
+                        user.setCorreo(u.getCorreo());
+                        user.setNickname(u.getNickname());
+                        user.setNombre(u.getNombre());
+                        user.setInstitucion(u.getInstitucion());
+                        //CARGAR CIUDAD
+                        user.setPuntosGanar(u.getPuntosGanar());
+                        user.setPuntosPerder(u.getPuntosPerder());
+                        //CARGAR EXPERIENCIA
+
+                        user.setMonedas(u.getMonedas());
+
+
                         break;
 
                     }else{
@@ -215,6 +233,40 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         });
 
 
+
+    }
+
+
+    private void consultarCiudad(){
+
+        databaseReference.child("Ciudad").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
+                    city = objSnapshot.getValue(Ciudad.class);
+
+                    if (city.getUid().equals(uidCiudad)){
+                        //cargar nombre
+                        city.setNombre(city.getNombre());
+                        //CARGAR EXPERIENCIA
+                        city.setXp(city.getXp());
+                        city.setUid(uidCiudad);
+                        city.setIdUsuario(uidUsuario);
+
+                        break;
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
