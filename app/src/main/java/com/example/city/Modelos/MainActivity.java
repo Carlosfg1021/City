@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         Toast.makeText(this,uidUsuario,Toast.LENGTH_SHORT).show();
 
-        consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
-        consultarCiudad();
+        //consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
+        //consultarCiudad();
 
 
 
@@ -163,6 +163,17 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 return cargarFragmento(fragment);
             }
         });
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        consultarExisteUsuario();
+        consultarCiudad();
+
+
 
 
     }
