@@ -33,6 +33,7 @@ import java.util.ArrayList;
 
 import static com.example.city.Modelos.MainActivity.uidCiudad;
 import static com.example.city.Modelos.MainActivity.uidUsuario;
+import static com.example.city.Modelos.MainActivity.user;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,6 +52,8 @@ public class PerfilFragment extends Fragment {
     //para consultas con firebase
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    int ganar=0;
+    int perder=0;
 
 
     //DECLARACION DE OBJETOS, ETC
@@ -120,6 +123,9 @@ public class PerfilFragment extends Fragment {
         inicializarFirebase();
         mostrarPerfil();
         mostrarCiudadExp();
+        //crearGraficoPastel(ganar, perder);
+        crearGrafico();
+
 
 
         return view;
@@ -159,7 +165,9 @@ public class PerfilFragment extends Fragment {
 
                         txtMonedas.setText(String.valueOf(u.getMonedas()));
 
-                        crearGraficoPastel(u.getPuntosGanar(), u.getPuntosPerder());
+                        ganar = u.getPuntosGanar();
+                        perder = u.getPuntosPerder();
+
 
                         //cargar photo
                         try {
@@ -173,6 +181,10 @@ public class PerfilFragment extends Fragment {
                     }
 
                 }
+
+
+
+
 
             }
 
@@ -223,16 +235,69 @@ public class PerfilFragment extends Fragment {
 
         ArrayList<PieEntry> pieEntries = new ArrayList<>();
 
-        pieEntries.add(new PieEntry(1, 2));
-        pieEntries.add(new PieEntry(2, 2));
+        pieEntries.add(new PieEntry(ganar));
+        pieEntries.add(new PieEntry(perder));
 
-        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Ganadas");
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Datos de partidas");
+
         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
         PieData pieData = new PieData(pieDataSet);
 
         pieChart.setData(pieData);
 
+
+    }
+
+    private void crearGrafico(){
+        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
+                    Usuario u = objSnapshot.getValue(Usuario.class);
+
+                    if (u.getUid().equals(uidUsuario)) {
+
+
+
+
+                        Description description = new Description();
+                        description.setText("Grafica Resultados");
+                        description.setTextSize(12);
+
+                        pieChart.setDescription(description);
+
+                        ArrayList<PieEntry> pieEntries = new ArrayList<>();
+
+                        pieEntries.add(new PieEntry(u.getPuntosGanar()));
+                        pieEntries.add(new PieEntry(u.getPuntosPerder()));
+
+                        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Datos de partidas");
+
+                        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+                        PieData pieData = new PieData(pieDataSet);
+                        pieChart.setNoDataText("Pulsa aquí para ver tu gráfico");
+                        pieChart.invalidate();
+
+                        pieChart.setData(pieData);
+
+
+
+                    }
+
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 
