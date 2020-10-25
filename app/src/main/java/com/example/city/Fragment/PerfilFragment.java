@@ -3,6 +3,7 @@ package com.example.city.Fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,12 +16,20 @@ import com.bumptech.glide.Glide;
 import com.example.city.R;
 import com.example.city.datos.Ciudad;
 import com.example.city.datos.Usuario;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 import static com.example.city.Modelos.MainActivity.uidCiudad;
 import static com.example.city.Modelos.MainActivity.uidUsuario;
@@ -31,6 +40,7 @@ import static com.example.city.Modelos.MainActivity.uidUsuario;
  * create an instance of this fragment.
  */
 public class PerfilFragment extends Fragment {
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,9 +58,8 @@ public class PerfilFragment extends Fragment {
     TextView lblNickname, lblCorreo, txtNickname, txtNombre, txtInstitucion, txtCorreo, txtCiudad, txtGanadas, txtPerdidas, txtExp, txtMonedas;
     View fotoPerfilF;
 
-
-
-
+    //Grafica
+    PieChart pieChart;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -106,15 +115,14 @@ public class PerfilFragment extends Fragment {
         txtExp = (TextView) view.findViewById(R.id.txtExp);
         txtMonedas = (TextView) view.findViewById(R.id.txtMonedas);
         fotoPerfilF = (ImageView) view.findViewById(R.id.fotoPerfilF);
+        pieChart = view.findViewById(R.id.graficoPastel);
 
         inicializarFirebase();
         mostrarPerfil();
         mostrarCiudadExp();
 
 
-
         return view;
-
 
 
     }
@@ -126,18 +134,17 @@ public class PerfilFragment extends Fragment {
     }
 
 
-    private void mostrarPerfil(){
+    private void mostrarPerfil() {
 
         databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-
-                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Usuario u = objSnapshot.getValue(Usuario.class);
 
-                    if (u.getUid().equals(uidUsuario)){
+                    if (u.getUid().equals(uidUsuario)) {
                         //TextView lblNickname, lblCorreo, txtNickname, txtNombre, txtInstitucion, txtCorreo, txtCiudad, txtGanadas, txtPerdidas, txtExp, txtMonedas;
                         lblNickname.setText(u.getNickname());
                         lblCorreo.setText(u.getCorreo());
@@ -152,12 +159,14 @@ public class PerfilFragment extends Fragment {
 
                         txtMonedas.setText(String.valueOf(u.getMonedas()));
 
+                        crearGraficoPastel(u.getPuntosGanar(), u.getPuntosPerder());
+
                         //cargar photo
-                        try{
+                        try {
                             Glide.with(getContext())
                                     .load(u.getFotoUrl())
                                     .into((ImageView) fotoPerfilF);
-                        }catch (Exception e){
+                        } catch (Exception e) {
 
                         }
 
@@ -175,18 +184,18 @@ public class PerfilFragment extends Fragment {
 
     }
 
-    private void mostrarCiudadExp(){
+    private void mostrarCiudadExp() {
 
         databaseReference.child("Ciudad").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Ciudad c = objSnapshot.getValue(Ciudad.class);
 
-                    if (c.getUid().equals(uidCiudad)){
+                    if (c.getUid().equals(uidCiudad)) {
                         //cargar nombre
-                       txtCiudad.setText(c.getNombre());
+                        txtCiudad.setText(c.getNombre());
                         //CARGAR EXPERIENCIA
                         txtExp.setText(String.valueOf(c.getXp()));
 
@@ -204,5 +213,27 @@ public class PerfilFragment extends Fragment {
 
     }
 
+    private void crearGraficoPastel(int ganar, int perder) {
+
+        Description description = new Description();
+        description.setText("Grafica Resultados");
+        description.setTextSize(12);
+
+        pieChart.setDescription(description);
+
+        ArrayList<PieEntry> pieEntries = new ArrayList<>();
+
+        pieEntries.add(new PieEntry(1, 2));
+        pieEntries.add(new PieEntry(2, 2));
+
+        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Ganadas");
+        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        PieData pieData = new PieData(pieDataSet);
+
+        pieChart.setData(pieData);
+
+
+    }
 
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="Grafica"
     >
 
     <LinearLayout
@@ -239,6 +240,21 @@
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/graficoPastel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </com.github.mikephil.charting.charts.PieChart>
+
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/txtCiudad"

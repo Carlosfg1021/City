@@ -24,6 +24,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    packagingOptions {
+
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+
+    }
+
 }
 
 dependencies {
@@ -89,9 +96,11 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //Para el firebase CRUD
-    implementation 'com.google.firebase:firebase-core:16.0.0'
-    implementation 'com.google.firebase:firebase-database:16.0.3'
+    implementation 'com.google.firebase:firebase-core:17.5.1'
+    implementation 'com.google.firebase:firebase-database:19.5.0'
 
+    //Grafica de pastel
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
 
 
 
