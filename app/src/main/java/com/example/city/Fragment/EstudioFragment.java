@@ -188,6 +188,7 @@ public class EstudioFragment extends Fragment {
                 cuenta.cancel();
                 Intent i = new Intent(getContext(), GanarActivity.class);
                 i.putExtra("opcion", "perder");
+                i.putExtra("tiempo", tiempoSeleccionado);
                 startActivity(i);
 
             }

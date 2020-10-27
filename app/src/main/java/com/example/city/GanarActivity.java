@@ -30,6 +30,7 @@ import static com.example.city.Modelos.MainActivity.user;
 public class GanarActivity extends AppCompatActivity {
 
     String opcion;
+    String tiempoSeleccionado;
     TextView titulo;
     TextView cantidadxp;
     ImageView fondo;
@@ -49,6 +50,7 @@ public class GanarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ganar);
         Bundle bundle = getIntent().getExtras();
         opcion = bundle.getString("opcion");
+        tiempoSeleccionado = bundle.getString("tiempo");
         titulo = (TextView) findViewById(R.id.titulo);
         cantidadxp = (TextView) findViewById(R.id.cantidadxp);
         fondo = (ImageView) findViewById(R.id.fondo);
@@ -65,6 +67,7 @@ public class GanarActivity extends AppCompatActivity {
         if(opcion.equals("ganar")){
             //Toast.makeText(this, "MAS PUNTOS", Toast.LENGTH_SHORT).show();
             titulo.setText("¡Ganaste!");
+
             cantidadxp.setText("+25XP");
 
 

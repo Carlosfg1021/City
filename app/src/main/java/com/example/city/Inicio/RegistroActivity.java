@@ -198,6 +198,23 @@ public class RegistroActivity extends AppCompatActivity {
             c.setIdUsuario(uidAgregar);
             c.setXp(0);
 
+            //colocando edificios
+            c.setA1("0");
+            c.setA2("0");
+            c.setA3("0");
+            c.setA4("0");
+            c.setA5("0");
+            c.setB1("0");
+            c.setB2("0");
+            c.setB3("0");
+            c.setB4("0");
+            c.setB5("0");
+            c.setC1("0");
+            c.setC2("0");
+            c.setC3("0");
+            c.setC4("0");
+            c.setC5("0");
+
             //Agregar datos child
 
             databaseReference.child("Usuario").child(usuario.getUid()).setValue(usuario);
