@@ -59,7 +59,15 @@
         android:textSize="45dp"
         android:textStyle="bold" />
 
-
+    <TextView
+        android:id="@+id/lblMonedas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="220dp"
+        android:text="+-Moneda"
+        android:textSize="45dp"
+        android:textStyle="bold" />
 
 
 
@@ -74,9 +82,24 @@
             android:orientation="vertical"
             android:padding="15dp">
 
+
+
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp" />
+
+
+            <ImageView
+                android:id="@+id/coin"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+
+
+                android:background="#fff"
+                android:src="@drawable/coin"
+                />
+
+
 
             <TextView
                 android:layout_width="match_parent"

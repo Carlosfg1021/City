@@ -280,6 +280,7 @@ public class EstudioFragment extends Fragment {
                 lbl_mostrar_tiempo.setText("00:00");
                 Intent i = new Intent(getContext(), GanarActivity.class);
                 i.putExtra("opcion", "ganar");
+                i.putExtra("tiempo", tiempoSeleccionado);
                 startActivity(i);
                 bandera=0; //se pone otra vez a espera y no activará el activity
 
