@@ -19,11 +19,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.city.AcercadeActivity;
 import com.example.city.Fragment.CiudadFragment;
 import com.example.city.Fragment.EstudioFragment;
 import com.example.city.Fragment.PerfilFragment;
 import com.example.city.Fragment.UsuarioFragment;
+import com.example.city.Inicio.InicioSesion;
 import com.example.city.Inicio.RegistroActivity;
+import com.example.city.PortadaActivity;
 import com.example.city.R;
 import com.example.city.datos.Ciudad;
 import com.example.city.datos.Usuario;
@@ -166,8 +169,18 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         drawerLayout.closeDrawers();
                         break;
 
+
+                    case R.id.btn_acercade:
+                        Intent intent = new Intent(MainActivity.this, AcercadeActivity.class);
+                        startActivity(intent);
+                        break;
+
+
                     case R.id.btn_cerrar:
                         drawerLayout.closeDrawers();
+                        Intent intent1 = new Intent(MainActivity.this, InicioSesion.class);
+                        startActivity(intent1);
+                        finish();
                         break;
 
                 }
