@@ -2,25 +2,35 @@ package com.example.city.Entidades;
 
 public class Usuarios {
 
-    private String nickname;
-    private String nombre_ciudad;
+
+    String nickname;
+    String institucion;
 
     public Usuarios(){}
 
-    public Usuarios(String nickname, String nombre_ciudad) {
+    public Usuarios(String nickname, String institucion) {
         this.nickname = nickname;
-        this.nombre_ciudad = nombre_ciudad;
+        this.institucion = institucion;
     }
+
+
+
 
     public String getNickname() {
         return nickname;
     }
 
-    public String getNombre_ciudad() {
-        return nombre_ciudad;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
+    public String getInstitucion() {
+        return institucion;
+    }
 
+    public void setInstitucion(String institucion) {
+        this.institucion = institucion;
+    }
 
 
 }
