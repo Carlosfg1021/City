@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="Grafica"
+    tools:context=".Inicio.RegistroActivity"
     >
 
     <LinearLayout
@@ -363,8 +363,18 @@
             android:textSize="16dp" />
 
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-    <View
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/default_badge_background_color"
+            android:text="Cerrar Sesion" />
+
+        <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="100dp" />
