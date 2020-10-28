@@ -7,6 +7,7 @@
     >
 
     <LinearLayout
+        android:id="@+id/fondoLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -16,6 +17,7 @@
         >
 
         <ImageView
+            android:id="@+id/iconoMostrar"
 
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -33,9 +35,10 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/lblDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Completaste el tiempo con exito"
+            android:text="lblDescripcion"
             android:textColor="#FFFFFF"
             android:layout_marginTop="15dp"
             android:textSize="20dp"

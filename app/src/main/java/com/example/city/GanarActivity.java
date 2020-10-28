@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +36,11 @@ public class GanarActivity extends AppCompatActivity {
     String tiempoSeleccionado;
     TextView titulo;
     TextView cantidadxp;
-    ImageView fondo;
+    LinearLayout fondo;
     Button btncontinuar;
     TextView lblMonedas;
+    TextView lblDescripcion;
+    ImageView iconoMostrar;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -58,8 +61,10 @@ public class GanarActivity extends AppCompatActivity {
         titulo = (TextView) findViewById(R.id.titulo);
         cantidadxp = (TextView) findViewById(R.id.cantidadxp);
         lblMonedas = (TextView) findViewById(R.id.lblMonedas);
-        //fondo = (ImageView) findViewById(R.id.fondo);
+        fondo = (LinearLayout) findViewById(R.id.fondoLayout);
         btncontinuar = (Button) findViewById(R.id.btnContinuar);
+        lblDescripcion = (TextView) findViewById(R.id.lblDescripcion);
+        iconoMostrar = (ImageView) findViewById(R.id.iconoMostrar);
 
 
         inicializarFirebase();
@@ -74,6 +79,7 @@ public class GanarActivity extends AppCompatActivity {
         if(opcion.equals("ganar")){
            // Toast.makeText(this, tiempoSeleccionado, Toast.LENGTH_SHORT).show();
             titulo.setText("¡Ganaste!");
+            lblDescripcion.setText("Has completado con éxito el tiempo");
 
 
             if(tiempoSeleccionado.equals("5 segundos")) {
@@ -130,8 +136,11 @@ public class GanarActivity extends AppCompatActivity {
         if(opcion.equals("perder")){
            // Toast.makeText(this, "MENOS PUNTOS", Toast.LENGTH_SHORT).show();
             titulo.setText("¡Perdiste!");
+            lblDescripcion.setText("No se completó el tiempo con éxito :(");
+            iconoMostrar.setImageResource(R.drawable.icon_perdiste);
+
             cantidadxp.setText("-pendienteXP");
-            fondo.setBackgroundColor(Color.rgb(252, 91, 91));
+            //fondo.setBackgroundColor(Color.rgb(252, 91, 91));
 
             if(tiempoSeleccionado.equals("5 segundos")) {
 
