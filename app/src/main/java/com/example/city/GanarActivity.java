@@ -58,7 +58,7 @@ public class GanarActivity extends AppCompatActivity {
         titulo = (TextView) findViewById(R.id.titulo);
         cantidadxp = (TextView) findViewById(R.id.cantidadxp);
         lblMonedas = (TextView) findViewById(R.id.lblMonedas);
-        fondo = (ImageView) findViewById(R.id.fondo);
+        //fondo = (ImageView) findViewById(R.id.fondo);
         btncontinuar = (Button) findViewById(R.id.btnContinuar);
 
 

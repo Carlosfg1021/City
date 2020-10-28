@@ -8,358 +8,142 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        android:paddingHorizontal="15dp"
+        android:gravity="center"
         >
 
-
         <ImageView
-            android:id="@+id/fondo"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#33b5e5"
-            android:scaleType="centerCrop"
+
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/icon_ganaste"
             />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡Felicidades!"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="15dp"
+            android:textSize="45dp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Ganaste!"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="110dp"
-        android:textSize="45dp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completaste el tiempo con exito"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-
-
-
-
-    <ImageView
-        android:id="@+id/editarImagenPerfil"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="35dp"
-        android:background="#fff"
-        android:src="@drawable/medalla_bronce"
-        />
-
-    <TextView
-        android:id="@+id/cantidadxp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+-XP"
-
-        android:layout_marginTop="90dp"
-        android:layout_marginLeft="130dp"
-        android:textSize="45dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/lblMonedas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="115dp"
-        android:layout_marginTop="220dp"
-        android:text="+-Moneda"
-        android:textSize="45dp"
-        android:textStyle="bold" />
-
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="180dp">
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="75dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="15dp">
-
-
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-
-            <ImageView
-                android:id="@+id/coin"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-
-
-                android:background="#fff"
-                android:src="@drawable/coin"
-                />
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Estadisticas"
-                android:textStyle="bold"
-                android:textSize="20dp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center">
 
-                <LinearLayout
+                <ImageView
+                    android:id="@+id/editarImagenPerfil"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icon_medalla"
+                    />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginRight="5dp"
-                    >
+                    android:text="   "
+                    android:textSize="30dp"
+                    android:textColor="#FFF"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
-
-                        <TextView
-                            android:id="@+id/txtExp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="EXP"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="                         "
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
-                        <TextView
-                            android:id="@+id/txtGanadas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ganadas"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@+id/cantidadxp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="5dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
+                    android:text="+-XP"
+                    android:textSize="30dp"
+                    android:textColor="#FFF"
+                    android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/txtMonedas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Modenas"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="                         "
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
-                        <TextView
-                            android:id="@+id/txtPerdidas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Perdidas"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
-
-
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Otra información"
-                android:textStyle="bold"
-                android:textSize="20dp" />
-
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Experiencia nueva"
-                android:textSize="14dp"
-                android:fontFamily="sans-serif"
-                />
-            <TextView
-                android:id="@+id/txtNombre"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:fontFamily="sans-serif"
-                android:hint="25XP"
-                android:textColor="#000000"
-                android:textSize="18dp" />
+                android:orientation="horizontal"
+                android:gravity="center">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp" />
+                <ImageView
+                    android:id="@+id/coin"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/icono_moneda"
+                    />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Monedas"
-                android:textSize="14dp"
-                android:fontFamily="sans-serif"
-                />
-            <TextView
-                android:id="@+id/txtApellido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:hint="100"
-                android:fontFamily="sans-serif"
-                android:textColor="#000000"
-                android:textSize="18dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   "
+                    android:textSize="30dp"
+                    android:textColor="#FFF"
+                    android:textStyle="bold" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp" />
+                <TextView
+                    android:id="@+id/lblMonedas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+-Moneda"
+                    android:textSize="30dp"
+                    android:textColor="#FFF"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Beneficio"
-                android:textSize="14dp"
-                android:fontFamily="sans-serif"
-
-                />
-
-            <TextView
-                android:id="@+id/txtCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:fontFamily="sans-serif"
-                android:hint="100x"
-                android:textColor="#000000"
-                android:textSize="16dp" />
-
-            <Button
-                android:id="@+id/btnContinuar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Continuar"
-                android:textColor="@color/blanco"
-                android:background="@drawable/boton_redondo_celeste"
-                android:layout_marginTop="35dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="100dp" />
-
-
-
+            </LinearLayout>
 
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
 
-    </ScrollView>
+        <Button
+            android:id="@+id/btnContinuar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Continuar"
+            android:textColor="@color/blanco"
+            android:background="@drawable/boton_redondo_celeste"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="10dp"
+            />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </RelativeLayout>
