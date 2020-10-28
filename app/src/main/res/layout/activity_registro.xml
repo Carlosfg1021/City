@@ -6,30 +6,34 @@
     tools:context=".Inicio.RegistroActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido a City of Studies"
-        android:textStyle="bold"
-        android:textSize="20dp" />
-    <TextView
-      android:layout_marginTop="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Primero debes crear tu usuario y darle un nombre a tu ciudad"
-        android:textSize="14dp"
-        android:fontFamily="sans-serif"
-        />
-
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="75dp"
-        android:paddingHorizontal="15dp">
+        android:paddingHorizontal="15dp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¡Bienvenido!"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Antes de continuar, debes completar estos datos:"
+            android:textSize="18dp"
+            android:fontFamily="sans-serif"
+
+            />
+
         <TextView
             android:id="@+id/uid"
             android:layout_width="wrap_content"
@@ -37,12 +41,13 @@
             android:text="UID GOOGLE"
             android:textSize="14dp"
             android:fontFamily="sans-serif"
+            android:textColor="#FFF"
             />
 
         <ImageView
             android:id="@+id/fotoPerfil"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:background="#33b5e5"
             android:scaleType="centerCrop"
             android:layout_gravity="center"
@@ -112,22 +117,17 @@
             android:layout_width="match_parent"
             android:layout_height="15dp" />
 
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="8dp" />
-
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Institución"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+            android:text="Institucion"
+            android:textSize="14dp"
+            android:fontFamily="sans-serif"
+            />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="3dp" />
 
         <Spinner
             android:id="@+id/sp_institucion"
@@ -139,19 +139,21 @@
             android:layout_height="15dp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ciudad"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+            android:text="Nombre para mi ciudad"
+            android:textSize="14dp"
+            android:fontFamily="sans-serif"
+            />
 
         <EditText
             android:id="@+id/txtCiudad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
             android:hint="Nombre de tu ciudad"
-            android:textStyle="bold"
-            android:textSize="15dp" />
+            android:textStyle="normal"
+            android:textSize="18dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -160,9 +162,7 @@
         <Button
             android:id="@+id/btnRegistro"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginHorizontal="15dp"
-
+            android:layout_height="40dp"
             android:text="Registrarme"
             android:textColor="@color/blanco"
             android:background="@drawable/btn_uno"
@@ -175,11 +175,11 @@
             android:layout_height="15dp" />
 
 
-        <Button
+        <!--<Button
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cerrar Sesion" />
+            android:text="Cerrar Sesion" />-->
 
     </LinearLayout>
 
