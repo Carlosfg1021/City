@@ -40,7 +40,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="140dp"
         android:orientation="horizontal"
-
+        android:background="#A7E7FF"
         >
 
 
