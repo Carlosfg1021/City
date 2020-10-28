@@ -19,7 +19,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/icono1"
+        android:src="@drawable/icono_app"
         android:layout_marginTop="103dp"
         android:layout_marginLeft="20dp"
         android:elevation="1dp"/>

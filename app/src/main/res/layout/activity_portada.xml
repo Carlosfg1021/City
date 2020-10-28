@@ -12,7 +12,7 @@
     android:layout_height="200dp"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="290dp"
-    android:background="@drawable/icono1"
+    android:background="@drawable/icono_app"
     >
 </ImageView>
 
