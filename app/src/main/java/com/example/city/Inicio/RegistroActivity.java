@@ -69,7 +69,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         inicializarFirebase();
 
-        logout = findViewById(R.id.logout);
+       // logout = findViewById(R.id.logout);
         nombre = findViewById(R.id.txtNombre);
         correo = findViewById(R.id.txtCorreo);
         uid = findViewById(R.id.uid);
