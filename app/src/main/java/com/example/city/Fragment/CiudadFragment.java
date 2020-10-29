@@ -1,5 +1,6 @@
 package com.example.city.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,8 +9,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.city.ConstruirActivity;
+import com.example.city.Inicio.RegistroActivity;
 import com.example.city.R;
 import com.example.city.datos.Ciudad;
 import com.google.firebase.FirebaseApp;
@@ -47,6 +51,7 @@ public class CiudadFragment extends Fragment {
     TextView lblNombreCiudad;
     TextView lblXp;
     TextView lblMonedas;
+    ImageView btnConstruir;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -88,6 +93,7 @@ public class CiudadFragment extends Fragment {
         lblNombreCiudad = (TextView) view.findViewById(R.id.lblNombreCiudad);
         lblXp = (TextView) view.findViewById(R.id.lblXp);
         lblMonedas = (TextView) view.findViewById(R.id.lblMonedas);
+        btnConstruir = (ImageView) view.findViewById(R.id.btnConstruir);
         inicializarFirebase();
         seleccionarCiudad();
 
@@ -95,6 +101,15 @@ public class CiudadFragment extends Fragment {
 
 
 
+
+        btnConstruir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ConstruirActivity.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
 
         return view;
