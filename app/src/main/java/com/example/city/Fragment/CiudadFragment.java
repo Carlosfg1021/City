@@ -2,13 +2,26 @@ package com.example.city.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.city.R;
+import com.example.city.datos.Ciudad;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static com.example.city.Modelos.MainActivity.city;
+import static com.example.city.Modelos.MainActivity.uidCiudad;
+import static com.example.city.Modelos.MainActivity.user;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +42,15 @@ public class CiudadFragment extends Fragment {
     public CiudadFragment() {
         // Required empty public constructor
     }
+
+    View view;
+    TextView lblNombreCiudad;
+    TextView lblXp;
+    TextView lblMonedas;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
 
     /**
      * Use this factory method to create a new instance of
@@ -61,6 +83,87 @@ public class CiudadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ciudad, container, false);
+        view= inflater.inflate(R.layout.fragment_ciudad, container, false);
+
+        lblNombreCiudad = (TextView) view.findViewById(R.id.lblNombreCiudad);
+        lblXp = (TextView) view.findViewById(R.id.lblXp);
+        lblMonedas = (TextView) view.findViewById(R.id.lblMonedas);
+        inicializarFirebase();
+        seleccionarCiudad();
+
+
+
+
+
+
+
+        return view;
     }
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(getActivity());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+    }
+
+
+    private void seleccionarCiudad(){
+        databaseReference.child("Ciudad").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
+                    Ciudad c = objSnapshot.getValue(Ciudad.class);
+
+                    if (c.getUid().equals(uidCiudad)){
+                        lblNombreCiudad.setText(c.getNombre());
+                        lblXp.setText("XP: "+c.getXp());
+                        lblMonedas.setText("Monedas: " + user.getMonedas());
+
+                        /*
+                        c2.setA1(c.getA1());
+                        c2.setA2(c.getA2());
+                        c2.setA3(c.getA3());
+                        c2.setA4(c.getA4());
+                        c2.setA5(c.getA5());
+
+                        c2.setB1(c.getB1());
+                        c2.setB2(c.getB2());
+                        c2.setB3(c.getB3());
+                        c2.setB4(c.getB4());
+                        c2.setB5(c.getB5());
+
+                        c2.setC1(c.getC1());
+                        c2.setC2(c.getC2());
+                        c2.setC3(c.getC3());
+                        c2.setC4(c.getC4());
+                        c2.setC5(c.getC5());
+                        */
+                        break;
+
+                    }else{
+
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+    }
+
+
+
+
+
+
 }

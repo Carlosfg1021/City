@@ -361,7 +361,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
-                    city = objSnapshot.getValue(Ciudad.class);
+                   city = objSnapshot.getValue(Ciudad.class);
 
                     if (city.getUid().equals(uidCiudad)){
                         //cargar nombre
@@ -370,6 +370,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                         city.setXp(city.getXp());
                         city.setUid(uidCiudad);
                         city.setIdUsuario(uidUsuario);
+
+                        city.setA1(city.getA1());
+                        city.setA2(city.getA2());
+                        city.setA3(city.getA3());
+                        city.setA4(city.getA4());
+                        city.setA5(city.getA5());
+
+                        city.setB1(city.getB1());
+                        city.setB2(city.getB2());
+                        city.setB3(city.getB3());
+                        city.setB4(city.getB4());
+                        city.setB5(city.getB5());
+
+                        city.setC1(city.getC1());
+                        city.setC2(city.getC2());
+                        city.setC3(city.getC3());
+                        city.setC4(city.getC4());
+                        city.setC5(city.getC5());
+
 
                         break;
 
