@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:text="Nick Usuario"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="120dp"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -47,7 +47,7 @@
     <Button
         android:id="@+id/btnEditarPerfil"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="130dp"
         android:text="Visitar Ciudad"
@@ -85,6 +85,38 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="Ciudad"
+                android:textStyle="bold"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:textSize="14dp"
+                android:fontFamily="sans-serif"
+                />
+            <TextView
+                android:id="@+id/txtCiudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif"
+                android:hint="Mi ciudad "
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Estadisticas"
                 android:textStyle="bold"
                 android:textSize="20dp" />
@@ -108,136 +140,120 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
 
-                        <TextView
-                            android:id="@+id/txtExp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="30dp"
-                            android:textStyle="bold"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/panel_1"
+                            android:layout_marginRight="5dp"
+                            >
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="EXP"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
+                            <TextView
+                                android:id="@+id/txtExp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="30dp"
+                                android:textStyle="bold"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="                         "
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EXP"
+                                android:textSize="16dp"
+                                android:textStyle="normal"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="                         "
+                                android:textSize="16dp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+
 
                     </LinearLayout>
+
                     <Space
                         android:layout_width="match_parent"
                         android:layout_height="10dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
-                        <TextView
-                            android:id="@+id/txtGanadas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="30dp"
-                            android:textStyle="bold"/>
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ganadas"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/panel_1"
+                            android:layout_marginRight="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/txtGanadas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="30dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ganadas"
+                                android:textSize="16dp"
+                                android:textStyle="normal"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="65dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:background="@drawable/panel_1"
+                            android:layout_marginRight="5dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/txtPerdidas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="30dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Perdidas"
+                                android:textSize="16dp"
+                                android:textStyle="normal"/>
+
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="5dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
 
-                        <TextView
-                            android:id="@+id/txtMonedas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="30dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Monedas"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="                         "
-                            android:textSize="16dp"
-                            android:textStyle="bold"/>
-
-                    </LinearLayout>
-                    <Space
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/panel_1"
-                        android:layout_marginRight="5dp"
-                        >
-                        <TextView
-                            android:id="@+id/txtPerdidas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0"
-                            android:textSize="30dp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Perdidas"
-                            android:textSize="16dp"
-                            android:textStyle="normal"/>
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_margin="8dp"
@@ -254,14 +270,7 @@
 
             </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/txtCiudad"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="CityName"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:textSize="30dp" />
+
 
 
 
@@ -297,6 +306,10 @@
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -314,10 +327,9 @@
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
-            <View
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp" />
+                android:layout_height="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -336,10 +348,9 @@
                 android:textColor="#000000"
                 android:textSize="18dp" />
 
-            <View
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp" />
+                android:layout_height="15dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -364,13 +375,6 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp" />
-
-            <Button
-                android:id="@+id/logout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/default_badge_background_color"
-                android:text="Cerrar Sesion" />
 
             <View
                 android:layout_width="match_parent"

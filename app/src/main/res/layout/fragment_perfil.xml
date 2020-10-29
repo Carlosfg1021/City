@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="Nick Usuario"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="50dp"
         android:layout_marginLeft="120dp"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -48,7 +48,7 @@
     <Button
         android:id="@+id/btnEditarPerfil"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="40dp"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="130dp"
         android:text="Editar Perfil"
@@ -78,6 +78,38 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="15dp">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ciudad"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="14dp"
+            android:fontFamily="sans-serif"
+            />
+        <TextView
+            android:id="@+id/txtCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="sans-serif"
+            android:hint="Mi ciudad "
+            android:textColor="#000000"
+            android:textSize="18dp" />
 
         <Space
             android:layout_width="match_parent"
@@ -240,6 +272,9 @@
             </LinearLayout>
         </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
         <androidx.cardview.widget.CardView
             android:layout_margin="8dp"
             android:layout_width="match_parent"
@@ -255,20 +290,9 @@
 
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/txtCiudad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CityName"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="30dp" />
-
-
-
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
+            android:layout_height="15dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -298,6 +322,10 @@
             android:textColor="#000000"
             android:textSize="18dp" />
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
+
         <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -315,10 +343,9 @@
         android:textColor="#000000"
         android:textSize="18dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -337,10 +364,9 @@
         android:textColor="#000000"
         android:textSize="18dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -359,24 +385,25 @@
             android:fontFamily="sans-serif"
             android:hint="acka@gmail.com"
             android:textColor="#000000"
-            android:textSize="16dp" />
+            android:textSize="18dp" />
 
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="30dp" />
 
         <Button
             android:id="@+id/logout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/default_badge_background_color"
-            android:text="Cerrar Sesion" />
+            android:layout_height="40dp"
+            android:background="@drawable/boton_cerrar_cesion"
+            android:text="Cerrar Sesion"
+            android:textColor="#FFF"/>
 
         <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="70dp" />
 
 
     </LinearLayout>
