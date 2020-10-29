@@ -21,6 +21,7 @@
         >
 
         <TextView
+            android:id="@+id/lblNombreCiudad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre Ciudad"
@@ -31,6 +32,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/lblXp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="XP: "
@@ -40,6 +42,7 @@
             android:textStyle="normal" />
 
         <TextView
+            android:id="@+id/lblMonedas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monedas: "
