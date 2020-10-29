@@ -177,10 +177,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
                     case R.id.btn_cerrar:
-                        drawerLayout.closeDrawers();
-                        Intent intent1 = new Intent(MainActivity.this, InicioSesion.class);
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent1 = new Intent(getApplicationContext(), InicioSesion.class);
                         startActivity(intent1);
-                        finish();
                         break;
 
                 }
