@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AcercadeActivity"></activity>
+        <activity android:name=".ConstruirActivity"></activity>
+        <activity android:name=".AcercadeActivity" />
         <activity
             android:name=".EditarUsuarioActivity"
             android:label="@string/title_activity_editar_usuario"

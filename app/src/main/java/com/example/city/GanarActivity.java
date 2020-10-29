@@ -139,7 +139,7 @@ public class GanarActivity extends AppCompatActivity {
             lblDescripcion.setText("No se completó el tiempo con éxito :(");
             iconoMostrar.setImageResource(R.drawable.icon_perdiste);
 
-            cantidadxp.setText("-pendienteXP");
+            cantidadxp.setText("0XP");
             //fondo.setBackgroundColor(Color.rgb(252, 91, 91));
 
             if(tiempoSeleccionado.equals("5 segundos")) {
