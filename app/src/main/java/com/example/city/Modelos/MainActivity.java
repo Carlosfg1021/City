@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public static Ciudad city = new Ciudad();
     boolean isRegistrado =false;
 
+    TextView txtNombre, txtCorreo;
+    ImageView imgUsuario;
+
     FirebaseUser userDB = FirebaseAuth.getInstance().getCurrentUser(); // es publico
 
     //Variables para agregar a firebase
@@ -159,6 +162,14 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         menuLateral = findViewById(R.id.navigationId);//Obtenemos el objeto del xml
+        View headerView = menuLateral.getHeaderView(0);
+        txtNombre = headerView.findViewById(R.id.menuNombreUsuario);
+        txtCorreo = headerView.findViewById(R.id.menuCorreoUsuario);
+        imgUsuario = headerView.findViewById(R.id.menuImagenPerfil);
+
+            cargarDatosMenu();
+
+
 
         menuLateral.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -237,67 +248,36 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         databaseReference = firebaseDatabase.getReference();
     }
 
-    private void listarDatos() {
+
+
+
+    private void cargarDatosMenu(){
         databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //listUsuarios.clear(); //por si tiene algo almacenado en caché
-                for(DataSnapshot objSnaptshot : dataSnapshot.getChildren()){
-                    Usuario p = objSnaptshot.getValue(Usuario.class);
-
-                   // listUsuarios.add(p);
-                   // Toast.makeText(MainActivity.this, "Nombre: " + p.getUid(), Toast.LENGTH_SHORT).show();
-                    String uid = p.getUid();
-
-
-                    if(userDB.getUid().equals(uid)){
-                        isRegistrado = true;
-                        Toast.makeText(MainActivity.this, "Nombre: " + p.getUid(), Toast.LENGTH_SHORT).show();
-                        uidCiudad = p.getIdCiudad();
-                    }
-
-                    //  arrayAdapterPersona = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, listPerson);
-                    //listV_personas.setAdapter(arrayAdapterPersona);
-                }
-
-                if (isRegistrado==true){
-                    Toast.makeText(MainActivity.this, "Usuario SI registrado", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MainActivity.this, "Usuario NO registrado", Toast.LENGTH_SHORT).show();
-                    //goRegistrar();
-                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
-
-    private void seleccionarUsuario(){
-        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-
 
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
                     Usuario u = objSnapshot.getValue(Usuario.class);
 
                     if (u.getUid().equals(uidUsuario)){
 
-                    isRegistrado=true;
-                        uidCiudad = u.getIdCiudad();
+                    txtNombre.setText(u.getNombre());
+                    txtCorreo.setText(u.getCorreo());
 
-                       // Toast.makeText(MainActivity.this, u.getNombre()+ "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+                        try {
+                            Glide.with(getApplicationContext())
+                                    .load(u.getFotoUrl())
+                                    .into((ImageView) imgUsuario);
+                        } catch (Exception e) {
+
+                        }
 
 
+
+                    break;
 
                     }else{
-                      //  Toast.makeText(MainActivity.this, u.getNombre()+ "NO ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+
 
                     }
 

@@ -1,13 +1,16 @@
 package com.example.city.Adaptadores;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.city.ConstruirActivity;
 import com.example.city.Entidades.Usuarios;
+import com.example.city.Modelos.MainActivity;
 import com.example.city.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -24,6 +27,8 @@ public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,Adaptado
      *
      * @param options
      */
+
+    private Context context;
     public AdaptadorUsuarios(@NonNull FirebaseRecyclerOptions<Usuarios> options) {
         super(options);
     }
@@ -35,12 +40,15 @@ public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,Adaptado
         holder.txtciudad.setText(usuarios.getInstitucion());
         holder.txtid.setText(usuarios.getUid());
 
-        /*holder.itemView.setOnClickListener(new View.OnClickListener() { tambien aqui se puede poner amigo
+
+        
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+              //  Toast.makeText(context.getApplicationContext(), "clic!", Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
     }
 
@@ -56,6 +64,8 @@ public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,Adaptado
    public class AdaptadorUs extends RecyclerView.ViewHolder{
 
        TextView txtnickname,txtciudad,txtid;
+       
+       
 
        public AdaptadorUs(@NonNull View itemView) {
            super(itemView);
@@ -63,11 +73,12 @@ public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,Adaptado
            txtciudad = itemView.findViewById(R.id.txtciudad);
            txtid = itemView.findViewById(R.id.idcard);
 
-           txtid.setVisibility(View.INVISIBLE);
+          // txtid.setVisibility(View.INVISIBLE);
 
            itemView.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View v) {
+
 
                }
            });

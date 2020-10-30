@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.city.Adaptadores.AdaptadorUsuarios;
 import com.example.city.Entidades.Usuarios;
@@ -47,6 +48,15 @@ public class UsuarioFragment extends Fragment {
 
         adapter = new AdaptadorUsuarios(options);
         recyclerView.setAdapter(adapter);
+
+
+        recyclerView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Click", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
         return view;
