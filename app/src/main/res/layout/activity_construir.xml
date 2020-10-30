@@ -199,6 +199,19 @@
 
             </LinearLayout>
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"/>
+
+        <Button
+            android:id="@+id/btnRegresar"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="280dp"
+            android:background="@drawable/boton_redondo_gris"
+            android:drawableStart="?attr/actionModeCloseDrawable"
+            android:text="Regresar" />
+
 
 
         </LinearLayout>
@@ -210,6 +223,8 @@
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
         android:orientation="vertical">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
