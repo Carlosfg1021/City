@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+
     //Variables para consultar al usuario
     private List<Usuario> listUsuario = new ArrayList<Usuario>();
     ArrayAdapter<Usuario> arrayAdapterUsuario;
@@ -75,9 +77,24 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*TextView menuNombre = (TextView) menuNavegacion.findViewById(R.id.menuNombreUsuario);
+        TextView menuCorreo = (TextView) menuNavegacion.findViewById(R.id.menuCorreoUsuario); este es una forma diferente para llamada
+        el layout aunque solo con texview tambien se puede hacer `pero no funciona paque
+        */
 
 
         inicializarFirebase();
+        /*if(user!=null){
+
+            String nombre = user.getNombre();
+            String correo = user.getCorreo();
+
+            menuNombre.setText(nombre);
+            menuCorreo.setText(correo);
+
+            Kevin aqui esta el codigo comentado lo saque del metodo
+        }*/
+
         Toast.makeText(this,userDB.getDisplayName(),Toast.LENGTH_SHORT).show();
 
         GoogleSignInAccount signInAccount = GoogleSignIn.getLastSignedInAccount(this);
@@ -93,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
         consultarCiudad();
+
 
 
         //Toast.makeText(this,uidUsuario,Toast.LENGTH_SHORT).show();
@@ -189,6 +207,10 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
     }
+
+
+
+
 
     @Override
     public void onResume() {
@@ -462,4 +484,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.city.Entidades.Usuarios;
 import com.example.city.R;
@@ -28,10 +29,18 @@ public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,Adaptado
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull AdaptadorUs holder, int position, @NonNull Usuarios usuarios) {
+    protected void onBindViewHolder(@NonNull final AdaptadorUs holder, int position, @NonNull Usuarios usuarios) {
 
         holder.txtnickname.setText(usuarios.getNickname());
         holder.txtciudad.setText(usuarios.getInstitucion());
+        holder.txtid.setText(usuarios.getUid());
+
+        /*holder.itemView.setOnClickListener(new View.OnClickListener() { tambien aqui se puede poner amigo
+            @Override
+            public void onClick(View view) {
+
+            }
+        });*/
 
     }
 
@@ -46,12 +55,22 @@ public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,Adaptado
 
    public class AdaptadorUs extends RecyclerView.ViewHolder{
 
-       TextView txtnickname,txtciudad;
+       TextView txtnickname,txtciudad,txtid;
 
        public AdaptadorUs(@NonNull View itemView) {
            super(itemView);
            txtnickname = itemView.findViewById(R.id.txtnickname);
            txtciudad = itemView.findViewById(R.id.txtciudad);
+           txtid = itemView.findViewById(R.id.idcard);
+
+           txtid.setVisibility(View.INVISIBLE);
+
+           itemView.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+
+               }
+           });
 
        }
    }
