@@ -56,6 +56,8 @@ public class CiudadFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    Ciudad c2 = new Ciudad();
+
 
     /**
      * Use this factory method to create a new instance of
@@ -121,6 +123,11 @@ public class CiudadFragment extends Fragment {
         databaseReference = firebaseDatabase.getReference();
     }
 
+    private void cargarCiudad(){
+
+
+    }
+
 
     private void seleccionarCiudad(){
         databaseReference.child("Ciudad").addValueEventListener(new ValueEventListener() {
@@ -137,7 +144,7 @@ public class CiudadFragment extends Fragment {
                         lblXp.setText("XP: "+c.getXp());
                         lblMonedas.setText("Monedas: " + user.getMonedas());
 
-                        /*
+
                         c2.setA1(c.getA1());
                         c2.setA2(c.getA2());
                         c2.setA3(c.getA3());
@@ -155,7 +162,7 @@ public class CiudadFragment extends Fragment {
                         c2.setC3(c.getC3());
                         c2.setC4(c.getC4());
                         c2.setC5(c.getC5());
-                        */
+
                         break;
 
                     }else{

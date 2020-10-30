@@ -182,6 +182,12 @@
                         android:background="@drawable/boton_cerrar_cesion"
                         />
 
+                    <TextView
+                        android:id="@+id/posicionSeleccionada"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ningun edificio seleccionado"/>
+
                 </LinearLayout>
 
 
@@ -222,7 +228,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n3_c1"
+                    android:id="@+id/rbtn_c1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -243,7 +249,7 @@
                 >
 
                 <RadioButton
-                    android:id="@+id/rbtn_n3_c2"
+                    android:id="@+id/rbtn_c2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -256,7 +262,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/rbtn_n3_c3"
+
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -265,6 +271,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
+                    android:id="@+id/rbtn_c3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -284,7 +291,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n3_c4"
+                    android:id="@+id/rbtn_c4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -313,7 +320,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n2_c1"
+                    android:id="@+id/rbtn_b1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -333,7 +340,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n2_c2"
+                    android:id="@+id/rbtn_b2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -353,7 +360,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n2_c3"
+                    android:id="@+id/rbtn_b3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -382,7 +389,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n1_c1"
+                    android:id="@+id/rbtn_a1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -403,7 +410,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n1_c2"
+                    android:id="@+id/rbtn_a2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -423,7 +430,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n1_c3"
+                    android:id="@+id/rbtn_a3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -443,7 +450,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n1_c4"
+                    android:id="@+id/rbtn_a4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
@@ -463,7 +470,7 @@
                 android:gravity="center_horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbtn_n1_c5"
+                    android:id="@+id/rbtn_a5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"></RadioButton>
 
