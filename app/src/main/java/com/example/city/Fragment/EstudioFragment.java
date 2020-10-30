@@ -133,6 +133,11 @@ public class EstudioFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+
+                btn_iniciar.setEnabled(false);
+                btn_iniciar.setText("Estudiando");
+                btn_iniciar.setBackgroundColor(Color.RED);
+                sp_tiempo.setEnabled(false);
                 Toast.makeText(getActivity(), tiempoSeleccionado, Toast.LENGTH_SHORT).show();
                 iniciarCuenta();
                 bandera=1;
