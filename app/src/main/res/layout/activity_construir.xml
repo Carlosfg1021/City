@@ -215,8 +215,8 @@
         <Button
             android:id="@+id/btnRegresar"
             android:layout_width="110dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
+            android:layout_height="24dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/boton_redondo_gris"
             android:drawableStart="?attr/actionModeCloseDrawable"
             android:text="Regresar" />
@@ -349,6 +349,7 @@
                     android:layout_height="wrap_content"></RadioButton>
 
                 <ImageView
+                    android:id="@+id/img_a1C"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -418,6 +419,7 @@
                     android:layout_height="wrap_content"></RadioButton>
 
                 <ImageView
+                    android:id="@+id/img_a1C"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

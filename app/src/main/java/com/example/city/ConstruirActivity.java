@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -55,6 +56,8 @@ public class ConstruirActivity extends AppCompatActivity {
     private TextView posicionSeleccionada;
     private Button btnComprar;
 
+    private ImageView a1C;
+
     Button btnRegresar;
 
 
@@ -78,6 +81,9 @@ public class ConstruirActivity extends AppCompatActivity {
     lblMonedas = (TextView) findViewById(R.id.lblMonedas);
     lblXp = (TextView) findViewById(R.id.lblXp);
     pEdificio = (TextView) findViewById(R.id.pEdificio);
+    a1C = (ImageView) findViewById(R.id.img_a1C);
+
+
 
          a1 = (RadioButton) findViewById(R.id.rbtn_a1);
         a2 = (RadioButton) findViewById(R.id.rbtn_a2);
