@@ -1,9 +1,13 @@
 package com.example.city.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -11,7 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.city.ConstruirActivity;
 import com.example.city.Inicio.RegistroActivity;
 import com.example.city.R;
@@ -26,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 import static com.example.city.Modelos.MainActivity.city;
 import static com.example.city.Modelos.MainActivity.uidCiudad;
 import static com.example.city.Modelos.MainActivity.user;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,7 +63,11 @@ public class CiudadFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    Ciudad c2 = new Ciudad();
+    Ciudad fcity = new Ciudad();
+
+    private ImageView a1,a2,a3,a4,a5, b1,b2,b3, c1,c2,c3,c4;
+
+    Drawable prueba;
 
 
     /**
@@ -96,8 +107,29 @@ public class CiudadFragment extends Fragment {
         lblXp = (TextView) view.findViewById(R.id.lblXp);
         lblMonedas = (TextView) view.findViewById(R.id.lblMonedas);
         btnConstruir = (ImageView) view.findViewById(R.id.btnConstruir);
+
+        a1 = (ImageView) view.findViewById(R.id.img_a1);
+        a2 = (ImageView) view.findViewById(R.id.img_a2);
+        a3 = (ImageView) view.findViewById(R.id.img_a3);
+        a4 = (ImageView) view.findViewById(R.id.img_a4);
+        a5 = (ImageView) view.findViewById(R.id.img_a5);
+
+        b1 = (ImageView) view.findViewById(R.id.img_b1);
+        b2 = (ImageView) view.findViewById(R.id.img_b2);
+        b3 = (ImageView) view.findViewById(R.id.img_b3);
+
+        c1 = (ImageView) view.findViewById(R.id.img_c1);
+        c2 = (ImageView) view.findViewById(R.id.img_c2);
+        c3 = (ImageView) view.findViewById(R.id.img_c3);
+        c4 = (ImageView) view.findViewById(R.id.img_c4);
+
+
+
+
+
         inicializarFirebase();
         seleccionarCiudad();
+
 
 
 
@@ -123,7 +155,226 @@ public class CiudadFragment extends Fragment {
         databaseReference = firebaseDatabase.getReference();
     }
 
-    private void cargarCiudad(){
+    private void cargarCiudad(Ciudad city ){
+
+        //Para la posicion A1
+        if(city.getA1().equals("n1_c1")){
+            a1.setImageResource(R.drawable.n1_c1);
+        }else if(city.getA1().equals("n1_c2")){
+            a1.setImageResource(R.drawable.n1_c2);
+        } else if(city.getA1().equals("n1_c3")){
+            a1.setImageResource(R.drawable.n1_c3);
+        } else if(city.getA1().equals("n2_c1")){
+            a1.setImageResource(R.drawable.n2_c1);
+        }else if(city.getA1().equals("n2_c2")){
+            a1.setImageResource(R.drawable.n2_c2);
+        }else if(city.getA1().equals("n3_c1")){
+            a1.setImageResource(R.drawable.n3_c1);
+        }else if(city.getA1().equals("n3_c2")){
+            a1.setImageResource(R.drawable.n3_c2);
+        }
+
+        //para la posición A2
+
+        if(city.getA2().equals("n1_c1")){
+            a2.setImageResource(R.drawable.n1_c1);
+        }else if(city.getA2().equals("n1_c2")){
+            a2.setImageResource(R.drawable.n1_c2);
+        } else if(city.getA2().equals("n1_c3")){
+            a2.setImageResource(R.drawable.n1_c3);
+        } else if(city.getA2().equals("n2_c1")){
+            a2.setImageResource(R.drawable.n2_c1);
+        }else if(city.getA2().equals("n2_c2")){
+            a2.setImageResource(R.drawable.n2_c2);
+        }else if(city.getA2().equals("n3_c1")){
+            a2.setImageResource(R.drawable.n3_c1);
+        }else if(city.getA2().equals("n3_c2")){
+            a2.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion A3
+
+        if(city.getA3().equals("n1_c1")){
+            a3.setImageResource(R.drawable.n1_c1);
+        }else if(city.getA3().equals("n1_c2")){
+            a3.setImageResource(R.drawable.n1_c2);
+        } else if(city.getA3().equals("n1_c3")){
+            a3.setImageResource(R.drawable.n1_c3);
+        } else if(city.getA3().equals("n2_c1")){
+            a3.setImageResource(R.drawable.n2_c1);
+        }else if(city.getA3().equals("n2_c2")){
+            a3.setImageResource(R.drawable.n2_c2);
+        }else if(city.getA3().equals("n3_c1")){
+            a3.setImageResource(R.drawable.n3_c1);
+        }else if(city.getA3().equals("n3_c2")){
+            a3.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion A4
+
+        if(city.getA4().equals("n1_c1")){
+            a4.setImageResource(R.drawable.n1_c1);
+        }else if(city.getA4().equals("n1_c2")){
+            a4.setImageResource(R.drawable.n1_c2);
+        } else if(city.getA4().equals("n1_c3")){
+            a4.setImageResource(R.drawable.n1_c3);
+        } else if(city.getA4().equals("n2_c1")){
+            a4.setImageResource(R.drawable.n2_c1);
+        }else if(city.getA4().equals("n2_c2")){
+            a4.setImageResource(R.drawable.n2_c2);
+        }else if(city.getA4().equals("n3_c1")){
+            a4.setImageResource(R.drawable.n3_c1);
+        }else if(city.getA4().equals("n3_c2")){
+            a4.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion A5
+
+        if(city.getA5().equals("n1_c1")){
+            a5.setImageResource(R.drawable.n1_c1);
+        }else if(city.getA5().equals("n1_c2")){
+            a5.setImageResource(R.drawable.n1_c2);
+        } else if(city.getA5().equals("n1_c3")){
+            a5.setImageResource(R.drawable.n1_c3);
+        } else if(city.getA5().equals("n2_c1")){
+            a5.setImageResource(R.drawable.n2_c1);
+        }else if(city.getA5().equals("n2_c2")){
+            a5.setImageResource(R.drawable.n2_c2);
+        }else if(city.getA5().equals("n3_c1")){
+            a5.setImageResource(R.drawable.n3_c1);
+        }else if(city.getA5().equals("n3_c2")){
+            a5.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion B1
+
+        if(city.getB1().equals("n1_c1")){
+            b1.setImageResource(R.drawable.n1_c1);
+        }else if(city.getB1().equals("n1_c2")){
+            b1.setImageResource(R.drawable.n1_c2);
+        } else if(city.getB1().equals("n1_c3")){
+            b1.setImageResource(R.drawable.n1_c3);
+        } else if(city.getB1().equals("n2_c1")){
+            b1.setImageResource(R.drawable.n2_c1);
+        }else if(city.getB1().equals("n2_c2")){
+            b1.setImageResource(R.drawable.n2_c2);
+        }else if(city.getB1().equals("n3_c1")){
+            b1.setImageResource(R.drawable.n3_c1);
+        }else if(city.getB1().equals("n3_c2")){
+            b1.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion B2
+
+        if(city.getB2().equals("n1_c1")){
+            b2.setImageResource(R.drawable.n1_c1);
+        }else if(city.getB2().equals("n1_c2")){
+            b2.setImageResource(R.drawable.n1_c2);
+        } else if(city.getB2().equals("n1_c3")){
+            b2.setImageResource(R.drawable.n1_c3);
+        } else if(city.getB2().equals("n2_c1")){
+            b2.setImageResource(R.drawable.n2_c1);
+        }else if(city.getB2().equals("n2_c2")){
+            b2.setImageResource(R.drawable.n2_c2);
+        }else if(city.getB2().equals("n3_c1")){
+            b2.setImageResource(R.drawable.n3_c1);
+        }else if(city.getB2().equals("n3_c2")){
+            b2.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion B3
+
+        if(city.getB3().equals("n1_c1")){
+            b3.setImageResource(R.drawable.n1_c1);
+        }else if(city.getB3().equals("n1_c2")){
+            b3.setImageResource(R.drawable.n1_c2);
+        } else if(city.getB3().equals("n1_c3")){
+            b3.setImageResource(R.drawable.n1_c3);
+        } else if(city.getB3().equals("n2_c1")){
+            b3.setImageResource(R.drawable.n2_c1);
+        }else if(city.getB3().equals("n2_c2")){
+            b3.setImageResource(R.drawable.n2_c2);
+        }else if(city.getB3().equals("n3_c1")){
+            b3.setImageResource(R.drawable.n3_c1);
+        }else if(city.getB3().equals("n3_c2")){
+            b3.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion C1
+
+        if(city.getC1().equals("n1_c1")){
+            c1.setImageResource(R.drawable.n1_c1);
+        }else if(city.getC1().equals("n1_c2")){
+            c1.setImageResource(R.drawable.n1_c2);
+        } else if(city.getC1().equals("n1_c3")){
+            c1.setImageResource(R.drawable.n1_c3);
+        } else if(city.getC1().equals("n2_c1")){
+            c1.setImageResource(R.drawable.n2_c1);
+        }else if(city.getC1().equals("n2_c2")){
+            c1.setImageResource(R.drawable.n2_c2);
+        }else if(city.getC1().equals("n3_c1")){
+            c1.setImageResource(R.drawable.n3_c1);
+        }else if(city.getC1().equals("n3_c2")){
+            c1.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion C2
+        if(city.getC2().equals("n1_c1")){
+            c2.setImageResource(R.drawable.n1_c1);
+        }else if(city.getC2().equals("n1_c2")){
+            c2.setImageResource(R.drawable.n1_c2);
+        } else if(city.getC2().equals("n1_c3")){
+            c2.setImageResource(R.drawable.n1_c3);
+        } else if(city.getC2().equals("n2_c1")){
+            c2.setImageResource(R.drawable.n2_c1);
+        }else if(city.getC2().equals("n2_c2")){
+            c2.setImageResource(R.drawable.n2_c2);
+        }else if(city.getC2().equals("n3_c1")){
+            c2.setImageResource(R.drawable.n3_c1);
+        }else if(city.getC2().equals("n3_c2")){
+            c2.setImageResource(R.drawable.n3_c2);
+        }
+
+        //Para la posicion C3
+        if(city.getC3().equals("n1_c1")){
+            c3.setImageResource(R.drawable.n1_c1);
+        }else if(city.getC3().equals("n1_c2")){
+            c3.setImageResource(R.drawable.n1_c2);
+        } else if(city.getC3().equals("n1_c3")){
+            c3.setImageResource(R.drawable.n1_c3);
+        } else if(city.getC3().equals("n2_c1")){
+            c3.setImageResource(R.drawable.n2_c1);
+        }else if(city.getC3().equals("n2_c2")){
+            c3.setImageResource(R.drawable.n2_c2);
+        }else if(city.getC3().equals("n3_c1")){
+            c3.setImageResource(R.drawable.n3_c1);
+        }else if(city.getC3().equals("n3_c2")){
+            c3.setImageResource(R.drawable.n3_c2);
+        }
+
+
+        //Para la posicion C4
+        if(city.getC4().equals("n1_c1")){
+            c4.setImageResource(R.drawable.n1_c1);
+        }else if(city.getC4().equals("n1_c2")){
+            c4.setImageResource(R.drawable.n1_c2);
+        } else if(city.getC4().equals("n1_c3")){
+            c4.setImageResource(R.drawable.n1_c3);
+        } else if(city.getC4().equals("n2_c1")){
+            c4.setImageResource(R.drawable.n2_c1);
+        }else if(city.getC4().equals("n2_c2")){
+            c4.setImageResource(R.drawable.n2_c2);
+        }else if(city.getC4().equals("n3_c1")){
+            c4.setImageResource(R.drawable.n3_c1);
+        }else if(city.getC4().equals("n3_c2")){
+            c4.setImageResource(R.drawable.n3_c2);
+        }
+
+
+
+
+
+
 
 
     }
@@ -145,23 +396,23 @@ public class CiudadFragment extends Fragment {
                         lblMonedas.setText("Monedas: " + user.getMonedas());
 
 
-                        c2.setA1(c.getA1());
-                        c2.setA2(c.getA2());
-                        c2.setA3(c.getA3());
-                        c2.setA4(c.getA4());
-                        c2.setA5(c.getA5());
+                        fcity.setA1(c.getA1());
+                        fcity.setA2(c.getA2());
+                        fcity.setA3(c.getA3());
+                        fcity.setA4(c.getA4());
+                        fcity.setA5(c.getA5());
 
-                        c2.setB1(c.getB1());
-                        c2.setB2(c.getB2());
-                        c2.setB3(c.getB3());
-                        c2.setB4(c.getB4());
-                        c2.setB5(c.getB5());
+                        fcity.setB1(c.getB1());
+                        fcity.setB2(c.getB2());
+                        fcity.setB3(c.getB3());
+                        fcity.setB4(c.getB4());
+                        fcity.setB5(c.getB5());
 
-                        c2.setC1(c.getC1());
-                        c2.setC2(c.getC2());
-                        c2.setC3(c.getC3());
-                        c2.setC4(c.getC4());
-                        c2.setC5(c.getC5());
+                        fcity.setC1(c.getC1());
+                        fcity.setC2(c.getC2());
+                        fcity.setC3(c.getC3());
+                        fcity.setC4(c.getC4());
+                        fcity.setC5(c.getC5());
 
                         break;
 
@@ -170,6 +421,13 @@ public class CiudadFragment extends Fragment {
                     }
 
                 }
+
+                cargarCiudad(fcity);
+
+
+
+
+
 
             }
 

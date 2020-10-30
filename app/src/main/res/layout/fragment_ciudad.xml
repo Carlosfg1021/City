@@ -76,10 +76,12 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_c1"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n3_c1"
+                        android:background="@drawable/grama"
+
                         ></ImageView>
                 </LinearLayout>
 
@@ -89,10 +91,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_c2"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n3_c2"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -102,10 +105,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_c3"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n3_c1"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -115,10 +119,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_c4"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n3_c2"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -140,10 +145,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_b1"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n2_c1"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -153,10 +159,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_b2"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n2_c2"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -166,10 +173,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_b3"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n2_c1"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -188,10 +196,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_a1"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n1_c1"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -201,10 +210,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_a2"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n1_c2"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -214,10 +224,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_a3"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n1_c1"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -227,10 +238,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_a4"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n1_c3"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 
@@ -240,10 +252,11 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:id="@+id/img_a5"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
-                        android:background="@drawable/n1_c2"
+                        android:background="@drawable/grama"
                         ></ImageView>
                 </LinearLayout>
 

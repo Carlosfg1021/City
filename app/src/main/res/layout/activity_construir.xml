@@ -186,7 +186,7 @@
                         android:id="@+id/posicionSeleccionada"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ningun edificio seleccionado"/>
+                        android:text="Selecciona una posición"/>
 
                 </LinearLayout>
 
