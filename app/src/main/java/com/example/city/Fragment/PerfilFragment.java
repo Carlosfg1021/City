@@ -280,7 +280,7 @@ public class PerfilFragment extends Fragment {
 
 
                         Description description = new Description();
-                        description.setText("Grafica Resultados");
+                        description.setText("");
                         description.setTextSize(12);
 
                         pieChart.setDescription(description);
@@ -290,7 +290,7 @@ public class PerfilFragment extends Fragment {
                         pieEntries.add(new PieEntry(u.getPuntosGanar()));
                         pieEntries.add(new PieEntry(u.getPuntosPerder()));
 
-                        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Datos de partidas");
+                        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Ganadas y Perdidas");
 
                         pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
 
