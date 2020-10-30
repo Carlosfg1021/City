@@ -3,6 +3,7 @@ package com.example.city;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.city.Adaptadores.AdaptadorCiudad;
+import com.example.city.Fragment.CiudadFragment;
 import com.example.city.datos.Cityrow;
 import com.example.city.datos.Ciudad;
 import com.example.city.datos.Usuario;
@@ -49,6 +51,8 @@ public class ConstruirActivity extends AppCompatActivity {
     private RadioButton a1, a2, a3, a4, a5, b1, b2, b3, c1, c2, c3, c4;
     private TextView posicionSeleccionada;
     private Button btnComprar;
+
+    Button btnRegresar;
 
 
     FirebaseDatabase firebaseDatabase;
@@ -87,6 +91,7 @@ public class ConstruirActivity extends AppCompatActivity {
         c4 = (RadioButton) findViewById(R.id.rbtn_c4);
 
         btnComprar = (Button) findViewById(R.id.btnComprar);
+        btnRegresar = (Button) findViewById(R.id.btnRegresar);
 
         inicializarFirebase();
         accionRadioButton();
@@ -94,7 +99,14 @@ public class ConstruirActivity extends AppCompatActivity {
         seleccionarMonedas();
         seleccionarUsuario();
 
-
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CiudadFragment.class);
+                //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -694,8 +706,5 @@ public class ConstruirActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
 }
