@@ -1,19 +1,19 @@
 package com.example.city.datos;
 
-import android.widget.ImageView;
-
 public class Cityrow {
 
-    public Cityrow(String id, String nombre, String precio, int imgFoto) {
+    public Cityrow(String id, String nombre, String precio, int imgFoto, String posicion) {
         this.id=id;
         this.nombre=nombre;
         this.precio=precio;
         this.imgFoto=imgFoto;
+        this.posicion=posicion;
     }
     private String id;
     private String nombre;
     private String precio;
     private int imgFoto; //se representa con id de foto
+    private String posicion;
 
 
     public String getId() {
@@ -50,4 +50,11 @@ public class Cityrow {
     }
 
 
+    public String getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
+    }
 }

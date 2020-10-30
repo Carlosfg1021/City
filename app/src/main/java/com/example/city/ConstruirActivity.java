@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.city.Adaptadores.AdaptadorCiudad;
 import com.example.city.Fragment.CiudadFragment;
+import com.example.city.Modelos.MainActivity;
 import com.example.city.datos.Cityrow;
 import com.example.city.datos.Ciudad;
 import com.example.city.datos.Usuario;
@@ -44,6 +45,8 @@ public class ConstruirActivity extends AppCompatActivity {
     private ImageView imgEdificioSeleccionado;
     private TextView lblMonedas, lblXp;
     private int bandera1=0, bandera2=0;
+    private TextView pEdificio;
+    private int banderaConstruccion=0;
 
 
 
@@ -74,6 +77,7 @@ public class ConstruirActivity extends AppCompatActivity {
     posicionSeleccionada = (TextView) findViewById(R.id.posicionSeleccionada);
     lblMonedas = (TextView) findViewById(R.id.lblMonedas);
     lblXp = (TextView) findViewById(R.id.lblXp);
+    pEdificio = (TextView) findViewById(R.id.pEdificio);
 
          a1 = (RadioButton) findViewById(R.id.rbtn_a1);
         a2 = (RadioButton) findViewById(R.id.rbtn_a2);
@@ -102,7 +106,7 @@ public class ConstruirActivity extends AppCompatActivity {
         btnRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CiudadFragment.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
@@ -125,6 +129,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Garage");
                     txtPrecioSeleccionado.setText("200");
                     txtIdSeleccionado.setText("n1_c1");
+                    pEdificio.setText("A");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n1_c1);
                     bandera1=1;
                     break;
@@ -133,6 +138,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Casa 1");
                     txtPrecioSeleccionado.setText("250");
                     txtIdSeleccionado.setText("n1_c2");
+                    pEdificio.setText("A");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n1_c2);
                     bandera1=1;
                     break;
@@ -141,6 +147,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Casa 2");
                     txtPrecioSeleccionado.setText("250");
                     txtIdSeleccionado.setText("n1_c3");
+                    pEdificio.setText("A");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n1_c3);
                     bandera1=1;
 
@@ -150,6 +157,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Apartamento 1");
                     txtPrecioSeleccionado.setText("700");
                     txtIdSeleccionado.setText("n2_c1");
+                    pEdificio.setText("B");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n2_c1);
                     bandera1=1;
 
@@ -159,6 +167,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Apartamento 2");
                     txtPrecioSeleccionado.setText("1000");
                     txtIdSeleccionado.setText("n2_c2");
+                    pEdificio.setText("B");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n2_c2);
                     bandera1=1;
 
@@ -168,6 +177,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Edificio 1");
                     txtPrecioSeleccionado.setText("3000");
                     txtIdSeleccionado.setText("n3_c1");
+                    pEdificio.setText("C");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n3_c1);
                     bandera1=1;
 
@@ -177,6 +187,7 @@ public class ConstruirActivity extends AppCompatActivity {
                     txtEdificioSeleccionado.setText("Edificio 2");
                     txtPrecioSeleccionado.setText("5000");
                     txtIdSeleccionado.setText("n3_c2");
+                    pEdificio.setText("C");
                     imgEdificioSeleccionado.setImageResource(R.drawable.n3_c2);
                     bandera1=1;
 
@@ -211,13 +222,13 @@ public class ConstruirActivity extends AppCompatActivity {
 
         ArrayList<Cityrow> listItems = new ArrayList<>();
 
-        listItems.add(new Cityrow("n1_c1","Garage","Precio: 200", R.drawable.n1_c1));
-        listItems.add(new Cityrow("n1_c2","Casa 1","Precio: 250", R.drawable.n1_c2));
-        listItems.add(new Cityrow("n1_c3","Casa 2","Precio: 250", R.drawable.n1_c3));
-        listItems.add(new Cityrow("n2_c1","Apartamento 1","Precio: 700", R.drawable.n2_c1));
-        listItems.add(new Cityrow("n2_c2","Apartamento 2","Precio: 1000", R.drawable.n2_c2));
-        listItems.add(new Cityrow("n3_c1","Edificio 1","Precio: 3000", R.drawable.n3_c1));
-        listItems.add(new Cityrow("n3_c2","Edificio 2","Precio: 5000", R.drawable.n3_c2));
+        listItems.add(new Cityrow("n1_c1","Garage","Precio: 200", R.drawable.n1_c1, "A"));
+        listItems.add(new Cityrow("n1_c2","Casa 1","Precio: 250", R.drawable.n1_c2, "A"));
+        listItems.add(new Cityrow("n1_c3","Casa 2","Precio: 250", R.drawable.n1_c3, "A"));
+        listItems.add(new Cityrow("n2_c1","Apartamento 1","Precio: 700", R.drawable.n2_c1, "B"));
+        listItems.add(new Cityrow("n2_c2","Apartamento 2","Precio: 1000", R.drawable.n2_c2, "B"));
+        listItems.add(new Cityrow("n3_c1","Edificio 1","Precio: 3000", R.drawable.n3_c1, "C"));
+        listItems.add(new Cityrow("n3_c2","Edificio 2","Precio: 5000", R.drawable.n3_c2, "C"));
 
 
 
@@ -226,57 +237,107 @@ public class ConstruirActivity extends AppCompatActivity {
 
 
     private void comprarEdificio(){
+        banderaConstruccion=0;
 
         if(bandera1==0 || bandera2==0){
             Toast.makeText(this, "Debes seleccionar un edificio y una posición", Toast.LENGTH_SHORT).show();
         }else{
             String codigoEdificio = String.valueOf(txtIdSeleccionado.getText());
             String posicion = String.valueOf(posicionSeleccionada.getText());
+            String clase = String.valueOf(pEdificio.getText());
             int monedas = user.getMonedas();
             int precio = Integer.parseInt(txtPrecioSeleccionado.getText().toString());
 
+
             if(monedas >= precio){
 
-                if(posicion.equals("a1")){
-                    city.setA1(codigoEdificio);
-                }else if(posicion.equals("a2")){
-                    city.setA2(codigoEdificio);
-                }else if(posicion.equals("a3")){
-                    city.setA3(codigoEdificio);
-                }
-                else if(posicion.equals("a4")){
-                    city.setA4(codigoEdificio);
-                }else if(posicion.equals("a5")){
-                    city.setA5(codigoEdificio);
-                }
+                if(clase.equals("A")){
 
-                else if(posicion.equals("b1")){
-                    city.setB1(codigoEdificio);
-                } else if(posicion.equals("b2")){
-                    city.setB2(codigoEdificio);
-                } else if(posicion.equals("b3")){
-                    city.setB3(codigoEdificio);
-                }
+                    if(posicion.equals("a1")){
+                        city.setA1(codigoEdificio);
+                        banderaConstruccion=1;
+                    }else if(posicion.equals("a2")){
+                        city.setA2(codigoEdificio);
+                        banderaConstruccion=1;
+                    }else if(posicion.equals("a3")){
+                        city.setA3(codigoEdificio);
+                        banderaConstruccion=1;
+                    }
+                    else if(posicion.equals("a4")){
+                        city.setA4(codigoEdificio);
+                        banderaConstruccion=1;
+                    }else if(posicion.equals("a5")){
+                        city.setA5(codigoEdificio);
+                        banderaConstruccion=1;
+                    }
 
-                else if(posicion.equals("c1")){
-                    city.setC1(codigoEdificio);
-                }else if(posicion.equals("c2")){
-                    city.setC2(codigoEdificio);
-                }else if(posicion.equals("c3")){
-                    city.setC3(codigoEdificio);
-                }else if(posicion.equals("c4")){
-                    city.setC4(codigoEdificio);
+                }else{
+
+
+
                 }
 
-                databaseReference.child("Ciudad").child(city.getUid()).setValue(city);
 
-                int monedasAnteriores = user.getMonedas();
-                int monedasActuales = monedasAnteriores - precio;
-                userC.setMonedas(monedasActuales);
-                databaseReference.child("Usuario").child(userC.getUid()).setValue(userC);
-                lblMonedas.setText(""+monedasActuales);
+                if(clase.equals("B")){
 
-                Toast.makeText(this, "Edificio construido exitosamente", Toast.LENGTH_SHORT).show();
+                    if(posicion.equals("b1")){
+                        city.setB1(codigoEdificio);
+                        banderaConstruccion=1;
+                    } else if(posicion.equals("b2")){
+                        city.setB2(codigoEdificio);
+                        banderaConstruccion=1;
+                    } else if(posicion.equals("b3")){
+                        city.setB3(codigoEdificio);
+                        banderaConstruccion=1;
+                    }
+
+                }else{
+
+                }
+
+
+
+                if(clase.equals("C")){
+
+                    if(posicion.equals("c1")){
+                        city.setC1(codigoEdificio);
+                        banderaConstruccion=1;
+                    }else if(posicion.equals("c2")){
+                        city.setC2(codigoEdificio);
+                        banderaConstruccion=1;
+                    }else if(posicion.equals("c3")){
+                        city.setC3(codigoEdificio);
+                        banderaConstruccion=1;
+                    }else if(posicion.equals("c4")){
+                        city.setC4(codigoEdificio);
+                        banderaConstruccion=1;
+                    }
+
+
+                }else{
+
+
+                }
+
+
+
+                if(banderaConstruccion==1){
+                    databaseReference.child("Ciudad").child(city.getUid()).setValue(city);
+                    int monedasAnteriores = user.getMonedas();
+                    int monedasActuales = monedasAnteriores - precio;
+                    userC.setMonedas(monedasActuales);
+                    databaseReference.child("Usuario").child(userC.getUid()).setValue(userC);
+                    lblMonedas.setText(""+monedasActuales);
+
+                    Toast.makeText(this, "Edificio construido exitosamente", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    if(banderaConstruccion==0){
+                        Toast.makeText(this, "No puedes colocar este edificio aquí", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+
 
 
 

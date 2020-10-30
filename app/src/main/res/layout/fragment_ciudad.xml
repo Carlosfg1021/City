@@ -119,6 +119,9 @@
                     android:layout_weight="1">
 
                     <ImageView
+
+                        android:scaleType="fitCenter"
+
                         android:id="@+id/img_c4"
                         android:layout_width="wrap_content"
                         android:layout_weight="1"

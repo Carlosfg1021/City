@@ -49,10 +49,13 @@ public class AdaptadorCiudad extends BaseAdapter {
         ImageView imgFoto = (ImageView) convertView.findViewById(R.id.fotoEdificio);
         TextView titulo = (TextView) convertView.findViewById(R.id.tituloEdificio);
         TextView precio = (TextView) convertView.findViewById(R.id.contenidoEdificio);
+        TextView posicion = (TextView) convertView.findViewById(R.id.posicionEdificio);
 
         imgFoto.setImageResource(Item.getImgFoto());
         titulo.setText(Item.getNombre());
         precio.setText(Item.getPrecio());
+        posicion.setText(Item.getPosicion());
+
 
 
         return convertView;
