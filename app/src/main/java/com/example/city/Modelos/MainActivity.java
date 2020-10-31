@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                     if (u.getUid().equals(uidUsuario)){
                         isRegistrado = true;
                         uidCiudad = u.getIdCiudad();
-                        Toast.makeText(MainActivity.this, "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(MainActivity.this, "SI ESTA REGISTRADO", Toast.LENGTH_SHORT).show();
 
                         user.setUid(u.getNickname());
                         user.setCorreo(u.getCorreo());
@@ -340,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 }
 
                 if(isRegistrado==false){
-                    Toast.makeText(MainActivity.this, "NOOO esta registrado", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, "NOOO esta registrado", Toast.LENGTH_SHORT).show();
                     goRegistrar();
                 }
 
