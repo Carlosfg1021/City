@@ -610,7 +610,7 @@ public class CiudadUsuarioActivity extends AppCompatActivity {
 
                     if (u.getUid().equals(idUsuarioConsulta)) {
                         //TextView lblNickname, lblCorreo, txtNickname, txtNombre, txtInstitucion, txtCorreo, txtCiudad, txtGanadas, txtPerdidas, txtExp, txtMonedas;
-                        lblDueno.setText("Dueño:" + u.getNickname());
+                        lblDueno.setText("Dueño: " + u.getNickname());
 
                     }
 
