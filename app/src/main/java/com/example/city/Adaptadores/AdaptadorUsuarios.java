@@ -20,69 +20,20 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AdaptadorUsuarios extends FirebaseRecyclerAdapter<Usuarios,AdaptadorUsuarios.AdaptadorUs> {
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+public class AdaptadorUsuarios extends RecyclerView.ViewHolder {
 
-    private Context context;
-    public AdaptadorUsuarios(@NonNull FirebaseRecyclerOptions<Usuarios> options) {
-        super(options);
+    public TextView txtnickname;
+    public TextView txtciudad;
+    public TextView idcard;
+    public View v;
+
+    public AdaptadorUsuarios(@NonNull View itemView) {
+        super(itemView);
+
+        txtnickname = itemView.findViewById(R.id.txtnickname);
+        txtciudad = itemView.findViewById(R.id.txtciudad);
+        idcard = itemView.findViewById(R.id.idcard);
+        idcard.setVisibility(View.INVISIBLE);
+        v=itemView;
     }
-
-    @Override
-    protected void onBindViewHolder(@NonNull final AdaptadorUs holder, int position, @NonNull Usuarios usuarios) {
-
-        holder.txtnickname.setText(usuarios.getNickname());
-        holder.txtciudad.setText(usuarios.getInstitucion());
-        holder.txtid.setText(usuarios.getUid());
-
-
-        
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              //  Toast.makeText(context.getApplicationContext(), "clic!", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
-
-    @NonNull
-    @Override
-    public AdaptadorUs onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_usuarios_ciudad,parent,false);
-        return new AdaptadorUs(view);
-    }
-
-    // public  TextView txtnickname,txtciudad;
-
-   public class AdaptadorUs extends RecyclerView.ViewHolder{
-
-       TextView txtnickname,txtciudad,txtid;
-       
-       
-
-       public AdaptadorUs(@NonNull View itemView) {
-           super(itemView);
-           txtnickname = itemView.findViewById(R.id.txtnickname);
-           txtciudad = itemView.findViewById(R.id.txtciudad);
-           txtid = itemView.findViewById(R.id.idcard);
-
-          // txtid.setVisibility(View.INVISIBLE);
-
-           itemView.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View v) {
-
-
-               }
-           });
-
-       }
-   }
 }

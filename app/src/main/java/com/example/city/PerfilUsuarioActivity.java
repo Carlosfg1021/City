@@ -57,6 +57,29 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
         imgFoto = (ImageView) findViewById(R.id.fotoPerfilF);
         pieChart = findViewById(R.id.graficoPastel);
 
+        /*databaseReference = FirebaseDatabase.getInstance().getReference().child("Usuario");
+        String Carkey = getIntent().getStringExtra("Carkey");
+
+        databaseReference.child(Carkey).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.exists()){
+
+
+                    String nombre = dataSnapshot.child("nombre").getValue().toString();
+                    txtNombre.setText(nombre);
+                }
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });*/
 
         mostrarPerfil();
         mostrarCiudadExp();
