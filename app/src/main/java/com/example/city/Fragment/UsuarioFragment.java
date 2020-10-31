@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.city.Adaptadores.AdaptadorUsuarios;
 import com.example.city.Entidades.Usuarios;
+import com.example.city.GanarActivity;
 import com.example.city.PerfilUsuarioActivity;
 import com.example.city.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -62,13 +63,16 @@ public class UsuarioFragment extends Fragment {
                holder.txtnickname.setText(usuarios.getNickname());
                holder.txtciudad.setText(usuarios.getInstitucion());
                holder.idcard.setText(usuarios.getUid());
+
                holder.v.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
-                       /*Intent intent = new Intent(getActivity().getApplicationContext(),PerfilUsuarioActivity.class);
-                       intent.putExtra("nombre",getRef(position).getKey());
-                       startActivity(intent);*/
-                       Toast.makeText(getActivity(),usuarios.getUid(),Toast.LENGTH_LONG).show();
+
+
+                       Intent intent = new Intent(getContext(),PerfilUsuarioActivity.class);
+                       intent.putExtra("idcardview",String.valueOf(getRef(position).getKey()));
+                       startActivity(intent);
+
                    }
                });
 

@@ -39,9 +39,12 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+    String idUsuarioConsulta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle bundle = getIntent().getExtras();
         setContentView(R.layout.activity_perfil_usuario);
         lblNickname = (TextView) findViewById(R.id.lblNickname);
         txtNickname = (TextView) findViewById(R.id.txtNickname);
@@ -56,6 +59,8 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
 
         imgFoto = (ImageView) findViewById(R.id.fotoPerfilF);
         pieChart = findViewById(R.id.graficoPastel);
+
+         idUsuarioConsulta = bundle.getString("idcardview");
 
         /*databaseReference = FirebaseDatabase.getInstance().getReference().child("Usuario");
         String Carkey = getIntent().getStringExtra("Carkey");
