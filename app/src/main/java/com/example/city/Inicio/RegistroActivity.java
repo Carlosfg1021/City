@@ -105,6 +105,7 @@ public class RegistroActivity extends AppCompatActivity {
 
         }
 
+        /*
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -115,6 +116,8 @@ public class RegistroActivity extends AppCompatActivity {
 
             }
         });
+
+         */
 
 
 

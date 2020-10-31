@@ -110,9 +110,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             uidUsuario = (signInAccount.getId());
 
 
-
-
-
         }
 
         consultarExisteUsuario(); //Este metodo nos sirve para ver si nuestro usuario es primera vez que usa la app
