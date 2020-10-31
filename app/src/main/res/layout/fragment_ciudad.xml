@@ -303,8 +303,8 @@
         android:id="@+id/btnConstruir"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="280dp"
         android:src="@drawable/construir"
 
         />
