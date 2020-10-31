@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.city.datos.Ciudad;
+import com.example.city.datos.Usuario;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import static com.example.city.Modelos.MainActivity.uidCiudad;
 import static com.example.city.Modelos.MainActivity.user;
+import static com.example.city.PerfilUsuarioActivity.idCiudadConsulta;
+import static com.example.city.PerfilUsuarioActivity.idUsuarioConsulta;
+
 
 public class CiudadUsuarioActivity extends AppCompatActivity {
 
@@ -26,16 +31,13 @@ public class CiudadUsuarioActivity extends AppCompatActivity {
     TextView lblXp;
     TextView lblMonedas;
     ImageView btnConstruir;
-
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
+    TextView lblDueno;
     private Ciudad fcity = new Ciudad();
-
-
+   // Bundle bundle = getIntent().getExtras();
 
     private ImageView a1,a2,a3,a4,a5, b1,b2,b3, c1,c2,c3,c4;
-
 
 
 
@@ -46,6 +48,7 @@ public class CiudadUsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ciudad_usuario);
         lblNombreCiudad = (TextView) findViewById(R.id.lblNombreCiudadU);
         lblXp = (TextView) findViewById(R.id.lblXpU);
+        lblDueno = (TextView) findViewById(R.id.lblDueno);
 
 
         a1 = (ImageView) findViewById(R.id.img_a1U);
@@ -63,12 +66,16 @@ public class CiudadUsuarioActivity extends AppCompatActivity {
         c3 = (ImageView) findViewById(R.id.img_c3U);
         c4 = (ImageView) findViewById(R.id.img_c4U);
 
+        //idCiudadConsulta = bundle.getString("idCiudadConsulta");
+
 
 
 
 
         inicializarFirebase();
         seleccionarCiudad();
+        seleccionarDueno();
+
 
 
 
@@ -539,7 +546,7 @@ public class CiudadUsuarioActivity extends AppCompatActivity {
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()){
                     Ciudad c = objSnapshot.getValue(Ciudad.class);
 
-                    if (c.getUid().equals(uidCiudad)){
+                    if (c.getUid().equals(idCiudadConsulta)){
                         lblNombreCiudad.setText(c.getNombre());
                         lblXp.setText("XP: "+c.getXp());
 
@@ -587,6 +594,39 @@ public class CiudadUsuarioActivity extends AppCompatActivity {
         });
 
 
+
+    }
+
+
+    private void seleccionarDueno() {
+
+        databaseReference.child("Usuario").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+
+                for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
+                    Usuario u = objSnapshot.getValue(Usuario.class);
+
+                    if (u.getUid().equals(idUsuarioConsulta)) {
+                        //TextView lblNickname, lblCorreo, txtNickname, txtNombre, txtInstitucion, txtCorreo, txtCiudad, txtGanadas, txtPerdidas, txtExp, txtMonedas;
+                        lblDueno.setText("Dueño:" + u.getNickname());
+
+                    }
+
+                }
+
+
+
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
     }
 

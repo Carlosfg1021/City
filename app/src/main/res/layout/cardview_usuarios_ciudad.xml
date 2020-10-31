@@ -63,6 +63,13 @@
                     android:layout_height="wrap_content"
                     android:text="Gualan City"
                     android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/idCiudadCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gualan City"
+                    android:textSize="14sp" />
+
 
             </LinearLayout>
 
@@ -85,6 +92,8 @@
                    android:layout_height="wrap_content"
                    android:textSize="5sp"
                    />
+
+
 
 
             </LinearLayout>

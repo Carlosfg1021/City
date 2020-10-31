@@ -22,7 +22,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/lblNickname"
+        android:id="@+id/lblNicknameC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nick Usuario"
@@ -33,7 +33,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/lblCorreo"
+        android:id="@+id/lblCorreoC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Correo electronico"
@@ -44,7 +44,7 @@
         android:textStyle="normal"/>
 
     <Button
-        android:id="@+id/btnEditarPerfil"
+        android:id="@+id/btnVisitarCiudad"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginHorizontal="15dp"
@@ -55,7 +55,7 @@
         />
 
     <ImageView
-        android:id="@+id/fotoPerfilF"
+        android:id="@+id/fotoPerfilC"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginLeft="15dp"
@@ -100,7 +100,7 @@
                 android:fontFamily="sans-serif"
                 />
             <TextView
-                android:id="@+id/txtCiudad"
+                android:id="@+id/txtCiudadC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -154,7 +154,7 @@
                             >
 
                             <TextView
-                                android:id="@+id/txtExp"
+                                android:id="@+id/txtExpC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
@@ -201,7 +201,7 @@
                             >
 
                             <TextView
-                                android:id="@+id/txtGanadas"
+                                android:id="@+id/txtGanadasC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
@@ -227,7 +227,7 @@
                             >
 
                             <TextView
-                                android:id="@+id/txtPerdidas"
+                                android:id="@+id/txtPerdidasC"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
@@ -260,7 +260,7 @@
                 android:layout_height="200dp">
 
                 <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/graficoPastel"
+                    android:id="@+id/graficoPastelC"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -296,7 +296,7 @@
                 android:fontFamily="sans-serif"
                 />
             <TextView
-                android:id="@+id/txtNickname"
+                android:id="@+id/txtNicknameC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -317,7 +317,7 @@
                 android:fontFamily="sans-serif"
                 />
             <TextView
-                android:id="@+id/txtNombre"
+                android:id="@+id/txtNombreC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -338,7 +338,7 @@
                 android:fontFamily="sans-serif"
                 />
             <TextView
-                android:id="@+id/txtInstitucion"
+                android:id="@+id/txtInstitucionC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -361,7 +361,7 @@
                 />
 
             <TextView
-                android:id="@+id/txtCorreo"
+                android:id="@+id/txtCorreoC"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"

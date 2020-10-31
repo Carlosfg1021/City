@@ -25,6 +25,7 @@ public class AdaptadorUsuarios extends RecyclerView.ViewHolder {
     public TextView txtnickname;
     public TextView txtciudad;
     public TextView idcard;
+    public TextView idCiudadCard;
     public View v;
 
     public AdaptadorUsuarios(@NonNull View itemView) {
@@ -33,6 +34,7 @@ public class AdaptadorUsuarios extends RecyclerView.ViewHolder {
         txtnickname = itemView.findViewById(R.id.txtnickname);
         txtciudad = itemView.findViewById(R.id.txtciudad);
         idcard = itemView.findViewById(R.id.idcard);
+        idCiudadCard = itemView.findViewById(R.id.idCiudadCard);
         idcard.setVisibility(View.INVISIBLE);
         v=itemView;
     }

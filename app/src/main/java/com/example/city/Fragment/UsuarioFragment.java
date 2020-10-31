@@ -34,6 +34,7 @@ public class UsuarioFragment extends Fragment {
      FirebaseRecyclerOptions<Usuarios> options;
      FirebaseRecyclerAdapter<Usuarios, AdaptadorUsuarios> adapter;
      DatabaseReference DataRef;
+     public static String idConsultarUsuario;
 
     @Nullable
     @Override
@@ -63,13 +64,14 @@ public class UsuarioFragment extends Fragment {
                holder.txtnickname.setText(usuarios.getNickname());
                holder.txtciudad.setText(usuarios.getInstitucion());
                holder.idcard.setText(usuarios.getUid());
+               holder.idCiudadCard.setText(usuarios.getUidCiudad());
 
                holder.v.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
 
 
-                       Intent intent = new Intent(getContext(),PerfilUsuarioActivity.class);
+                       Intent intent = new Intent(getActivity(), PerfilUsuarioActivity.class);
                        intent.putExtra("idcardview",String.valueOf(getRef(position).getKey()));
                        startActivity(intent);
 

@@ -6,16 +6,19 @@ public class Usuarios {
     String nickname;
     String institucion;
 
+    private String uidCiudad;
+
 
 
     String uid;
 
     public Usuarios(){}
 
-    public Usuarios(String nickname, String institucion,String uid) {
+    public Usuarios(String nickname, String institucion,String uid, String uidCiudad) {
         this.nickname = nickname;
         this.institucion = institucion;
         this.uid= uid;
+        this.uidCiudad = uidCiudad;
     }
 
 
@@ -46,4 +49,11 @@ public class Usuarios {
     }
 
 
+    public String getUidCiudad() {
+        return uidCiudad;
+    }
+
+    public void setUidCiudad(String uidCiudad) {
+        this.uidCiudad = uidCiudad;
+    }
 }

@@ -27,6 +27,7 @@ import com.example.city.Fragment.PerfilFragment;
 import com.example.city.Fragment.UsuarioFragment;
 import com.example.city.Inicio.InicioSesion;
 import com.example.city.Inicio.RegistroActivity;
+import com.example.city.PerfilUsuarioActivity;
 import com.example.city.PortadaActivity;
 import com.example.city.R;
 import com.example.city.datos.Ciudad;
@@ -87,6 +88,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
         inicializarFirebase();
+
+        //intent.putExtra("idcardview",String.valueOf(getRef(position).getKey()));
+
         /*if(user!=null){
 
             String nombre = user.getNombre();

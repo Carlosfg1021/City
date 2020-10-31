@@ -3,7 +3,10 @@ package com.example.city;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,32 +38,38 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
     private PieChart pieChart;
     int ganar, perder;
 
+    private Button btnVisitar;
+
+    public static String idUsuarioConsulta;
+     public static String idCiudadConsulta;
+
     //para consultas con firebase
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
-    String idUsuarioConsulta;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getExtras();
         setContentView(R.layout.activity_perfil_usuario);
-        lblNickname = (TextView) findViewById(R.id.lblNickname);
-        txtNickname = (TextView) findViewById(R.id.txtNickname);
-        txtNombre = (TextView) findViewById(R.id.txtNombre);
-        txtInstitucion = (TextView) findViewById(R.id.txtInstitucion);
-        txtCorreo = (TextView) findViewById(R.id.txtCorreo);
-        lblCorreo = (TextView) findViewById(R.id.lblCorreo);
-        txtCiudad = (TextView) findViewById(R.id.txtCiudad);
-        txtGanadas = (TextView) findViewById(R.id.txtGanadas);
-        txtPerdidas = (TextView) findViewById(R.id.txtPerdidas);
-        txtXp = (TextView) findViewById(R.id.txtExp);
+        lblNickname = (TextView) findViewById(R.id.lblNicknameC);
+        txtNickname = (TextView) findViewById(R.id.txtNicknameC);
+        txtNombre = (TextView) findViewById(R.id.txtNombreC);
+        txtInstitucion = (TextView) findViewById(R.id.txtInstitucionC);
+        txtCorreo = (TextView) findViewById(R.id.txtCorreoC);
+        lblCorreo = (TextView) findViewById(R.id.lblCorreoC);
+        txtCiudad = (TextView) findViewById(R.id.txtCiudadC);
+        txtGanadas = (TextView) findViewById(R.id.txtGanadasC);
+        txtPerdidas = (TextView) findViewById(R.id.txtPerdidasC);
+        txtXp = (TextView) findViewById(R.id.txtExpC);
+        btnVisitar = (Button) findViewById(R.id.btnVisitarCiudad);
 
-        imgFoto = (ImageView) findViewById(R.id.fotoPerfilF);
-        pieChart = findViewById(R.id.graficoPastel);
+        imgFoto = (ImageView) findViewById(R.id.fotoPerfilC);
+        pieChart = findViewById(R.id.graficoPastelC);
 
-         idUsuarioConsulta = bundle.getString("idcardview");
+       idUsuarioConsulta = bundle.getString("idcardview");
 
         /*databaseReference = FirebaseDatabase.getInstance().getReference().child("Usuario");
         String Carkey = getIntent().getStringExtra("Carkey");
@@ -86,10 +95,22 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
             }
         });*/
 
+        inicializarFirebase();
         mostrarPerfil();
         mostrarCiudadExp();
-        //crearGraficoPastel(ganar, perder);
+        crearGraficoPastel(ganar, perder);
         crearGrafico();
+
+        btnVisitar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), CiudadUsuarioActivity.class);
+              //  intent.putExtra("idCiudad", idCiudadConsulta);
+                startActivity(intent);
+
+            }
+        });
 
 
     }
@@ -111,7 +132,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Usuario u = objSnapshot.getValue(Usuario.class);
 
-                    if (u.getUid().equals(uidUsuario)) {
+                    if (u.getUid().equals(idUsuarioConsulta)) {
                         //TextView lblNickname, lblCorreo, txtNickname, txtNombre, txtInstitucion, txtCorreo, txtCiudad, txtGanadas, txtPerdidas, txtExp, txtMonedas;
                         lblNickname.setText(u.getNickname());
                         lblCorreo.setText(u.getCorreo());
@@ -119,6 +140,8 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
                         txtNombre.setText(u.getNombre());
                         txtInstitucion.setText(u.getInstitucion());
                         txtCorreo.setText(u.getCorreo());
+
+                        idCiudadConsulta = u.getIdCiudad();
 
                         txtGanadas.setText(String.valueOf(u.getPuntosGanar()));
                         txtPerdidas.setText(String.valueOf(u.getPuntosPerder()));
@@ -164,7 +187,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Ciudad c = objSnapshot.getValue(Ciudad.class);
 
-                    if (c.getUid().equals(uidCiudad)) {
+                    if (c.getUid().equals(idCiudadConsulta)) {
                         //cargar nombre
                         txtCiudad.setText(c.getNombre());
                         //CARGAR EXPERIENCIA
@@ -217,7 +240,7 @@ public class PerfilUsuarioActivity extends AppCompatActivity {
                 for (DataSnapshot objSnapshot : dataSnapshot.getChildren()) {
                     Usuario u = objSnapshot.getValue(Usuario.class);
 
-                    if (u.getUid().equals(uidUsuario)) {
+                    if (u.getUid().equals(idUsuarioConsulta)) {
 
 
 
