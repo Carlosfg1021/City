@@ -47,7 +47,7 @@ public class UsuarioFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         loadData();
-
+ ///
         return view;
 
 
